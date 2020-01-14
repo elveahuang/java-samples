@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>cn.elvea.repo</groupId>
+    <artifactId>parent</artifactId>
+    <version>1.0.0</version>
+    <packaging>pom</packaging>
+
+    <properties>
+        <!-- project -->
+        <project.source>1.8</project.source>
+        <project.target>1.8</project.target>
+        <project.encoding>UTF-8</project.encoding>
+        <project.build.version>1.0.0</project.build.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <!-- spring -->
+        <spring-boot.version>2.2.2.RELEASE</spring-boot.version>
+        <spring-cloud.version>Hoxton.SR1</spring-cloud.version>
+        <!-- jdbc -->
+        <mysql.version>8.0.18</mysql.version>
+        <mariadb.version>2.5.3</mariadb.version>
+        <mssql.version>8.1.1.jre8</mssql.version>
+        <oracle.version>19.3.0.0</oracle.version>
+        <postgresql.version>42.2.9</postgresql.version>
+        <!-- database -->
+        <druid.version>1.1.21</druid.version>
+        <druid-spring-boot-starter.version>1.1.21</druid-spring-boot-starter.version>
+        <redisson.version>3.11.6</redisson.version>
+        <redisson-spring-boot-starter.version>3.11.6</redisson-spring-boot-starter.version>
+        <jsqlparser.version>3.1</jsqlparser.version>
+        <!-- mybatis -->
+        <mybatis.version>3.5.3</mybatis.version>
+        <mybatis-spring.version>2.0.3</mybatis-spring.version>
+        <mybatis-spring-boot.version>2.0.3</mybatis-spring-boot.version>
+        <mybatis-plus.version>3.3.0</mybatis-plus.version>
+        <!-- commons -->
+        <commons-io.version>2.6</commons-io.version>
+        <commons-net.version>3.6</commons-net.version>
+        <commons-lang.version>2.6</commons-lang.version>
+        <commons-codec.version>1.13</commons-codec.version>
+        <commons-logging.version>1.2</commons-logging.version>
+        <commons-beanutils.version>1.9.4</commons-beanutils.version>
+        <commons-fileupload.version>1.4</commons-fileupload.version>
+        <commons-collections.version>3.2.2</commons-collections.version>
+        <!-- org.apache.commons -->
+        <commons-collections-4.version>4.4</commons-collections-4.version>
+        <commons-compress.version>1.19</commons-compress.version>
+        <commons-csv.version>1.7</commons-csv.version>
+        <commons-email.version>1.5</commons-email.version>
+        <commons-lang-3.version>3.9</commons-lang-3.version>
+        <commons-text.version>1.8</commons-text.version>
+        <commons-pool-2.version>2.7.0</commons-pool-2.version>
+        <!-- 3rd party -->
+        <asm.version>7.2</asm.version>
+        <javassist.version>3.26.0-GA</javassist.version>
+        <dom4j-2.version>2.1.1</dom4j-2.version>
+        <ognl.version>3.2.12</ognl.version>
+        <sitemesh.version>3.0.1</sitemesh.version>
+        <guava.version>28.1-jre</guava.version>
+        <okhttp.version>4.2.2</okhttp.version>
+        <okio.version>2.4.3</okio.version>
+        <jjwt.version>0.10.7</jjwt.version>
+        <flowable.version>6.4.2</flowable.version>
+        <libreoffice.version>6.3.2</libreoffice.version>
+        <jodconverter.version>4.2.2</jodconverter.version>
+        <poi.version>4.1.1</poi.version>
+        <pdfbox.version>2.0.18</pdfbox.version>
+        <jetty.version>9.4.25.v20191220</jetty.version>
+        <!-- webjars -->
+        <webjars-jquery.version>3.4.1</webjars-jquery.version>
+        <webjars-bootstrap.version>4.4.1</webjars-bootstrap.version>
+        <webjars-handlebars.version>4.5.3</webjars-handlebars.version>
+        <webjars-font-awesome.version>5.12.0</webjars-font-awesome.version>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <!-- spring -->
+            <dependency><!-- spring-cloud -->
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring-cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency><!-- spring-boot -->
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${spring-boot.version}</version>
+                <scope>import</scope>
+                <type>pom</type>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <build>
+        <pluginManagement>
+            <plugins>
+                <!-- compiler -->
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <configuration>
+                        <source>${project.source}</source>
+                        <target>${project.target}</target>
+                        <encoding>${project.encoding}</encoding>
+                    </configuration>
+                </plugin>
+
+                <!-- war -->
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-war-plugin</artifactId>
+                    <configuration>
+                        <failOnMissingWebXml>false</failOnMissingWebXml>
+                    </configuration>
+                </plugin>
+
+                <!-- spring-boot-maven-plugin -->
+                <plugin>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-maven-plugin</artifactId>
+                    <version>${spring-boot.version}</version>
+                </plugin>
+
+                <plugin>
+                    <groupId>org.eclipse.jetty</groupId>
+                    <artifactId>jetty-maven-plugin</artifactId>
+                    <version>${jetty.version}</version>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+
+        <plugins>
+            <plugin>
+                <groupId>org.eclipse.jetty</groupId>
+                <artifactId>jetty-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+</project>
