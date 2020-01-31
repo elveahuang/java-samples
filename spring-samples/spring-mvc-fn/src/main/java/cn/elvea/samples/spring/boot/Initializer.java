@@ -1,7 +1,7 @@
-package cn.elvea.samples.spring.mvc;
+package cn.elvea.samples.spring.boot;
 
-import cn.elvea.samples.spring.mvc.config.Config;
-import cn.elvea.samples.spring.mvc.config.WebMvcConfig;
+import cn.elvea.samples.spring.boot.config.Config;
+import cn.elvea.samples.spring.boot.config.WebMvcConfig;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
 public class Initializer extends AbstractAnnotationConfigDispatcherServletInitializer {

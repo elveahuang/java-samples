@@ -1,4 +1,4 @@
-package cn.elvea.samples.spring.mvc.hander;
+package cn.elvea.samples.spring.boot.hander;
 
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.function.ServerRequest;

@@ -1,6 +1,6 @@
-package cn.elvea.samples.spring.mvc.config;
+package cn.elvea.samples.spring.boot.config;
 
-import cn.elvea.samples.spring.mvc.hander.UserHander;
+import cn.elvea.samples.spring.boot.hander.UserHander;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;

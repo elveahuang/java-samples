@@ -1,4 +1,4 @@
-package cn.elvea.samples.spring.mvc.config;
+package cn.elvea.samples.spring.boot.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -10,7 +10,7 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 @Configuration
 @EnableWebMvc
 @ComponentScan(
-        basePackages = {"cn.elvea.samples.spring.mvc"},
+        basePackages = {"cn.elvea.samples.spring.boot"},
         includeFilters = {@ComponentScan.Filter(Controller.class)}
 )
 public class WebMvcConfig {

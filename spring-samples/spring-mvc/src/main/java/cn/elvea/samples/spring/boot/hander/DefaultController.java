@@ -1,4 +1,4 @@
-package cn.elvea.samples.spring.mvc.hander;
+package cn.elvea.samples.spring.boot.hander;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
