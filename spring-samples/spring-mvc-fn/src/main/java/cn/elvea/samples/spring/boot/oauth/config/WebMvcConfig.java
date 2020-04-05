@@ -1,4 +1,4 @@
-package cn.elvea.samples.spring.boot.config;
+package cn.elvea.samples.spring.boot.oauth.config;
 
 import cn.elvea.samples.spring.boot.hander.UserHander;
 import org.springframework.context.annotation.Bean;

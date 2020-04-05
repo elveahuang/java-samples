@@ -9,5 +9,6 @@
     <packaging>pom</packaging>
     <modules>
         <module>spring-boot-base</module>
+        <module>spring-boot-oauth</module>
     </modules>
 </project>
