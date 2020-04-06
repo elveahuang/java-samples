@@ -9,8 +9,8 @@
         <version>1.0.0</version>
         <relativePath>../../spring-parent/pom.xml</relativePath>
     </parent>
-    <artifactId>spring-mvc</artifactId>
-    <description>Spring MVC Sample</description>
+    <artifactId>spring-mvc-fn-sample</artifactId>
+    <description>Spring MVC Function Sample</description>
     <version>1.0.0</version>
     <packaging>war</packaging>
 
