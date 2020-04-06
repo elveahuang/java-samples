@@ -8,7 +8,9 @@
     <version>1.0.0</version>
     <packaging>pom</packaging>
     <modules>
-        <module>spring-boot-base-sample</module>
+        <module>spring-boot-oauth-authorization-server-sample</module>
+        <module>spring-boot-oauth-resource-server-sample</module>
+        <module>spring-boot-oauth-client-sample</module>
         <module>spring-boot-oauth-sample</module>
     </modules>
 </project>

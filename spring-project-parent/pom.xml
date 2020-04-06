@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>cn.elvea.repo</groupId>
-    <artifactId>spring-parent</artifactId>
+    <artifactId>spring-project-parent</artifactId>
     <version>1.0.0</version>
     <packaging>pom</packaging>
 
@@ -115,7 +115,7 @@
             <dependency><!-- spring-security-oauth2-autoconfigure -->
                 <groupId>org.springframework.security.oauth.boot</groupId>
                 <artifactId>spring-security-oauth2-autoconfigure</artifactId>
-                <version>${spring-boot-oauth.version.version}</version>
+                <version>${spring-boot-oauth.version}</version>
             </dependency>
             <!-- webjars -->
             <dependency>
@@ -194,12 +194,5 @@
                 </plugin>
             </plugins>
         </pluginManagement>
-
-        <plugins>
-            <plugin>
-                <groupId>org.eclipse.jetty</groupId>
-                <artifactId>jetty-maven-plugin</artifactId>
-            </plugin>
-        </plugins>
     </build>
 </project>

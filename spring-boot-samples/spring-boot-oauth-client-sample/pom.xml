@@ -5,45 +5,14 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>cn.elvea.repo</groupId>
-        <artifactId>spring-project-parent</artifactId>
+        <artifactId>spring-parent</artifactId>
         <version>1.0.0</version>
-        <relativePath>../../spring-project-parent/pom.xml</relativePath>
+        <relativePath>../../spring-parent/pom.xml</relativePath>
     </parent>
-    <artifactId>spring-boot-oauth-sample</artifactId>
-    <description>Spring Boot OAuth Sample</description>
+    <artifactId>spring-boot-oauth-client-sample</artifactId>
     <version>1.0.0</version>
     <packaging>jar</packaging>
-
-    <build>
-        <plugins>
-            <plugin><!-- spring-boot-maven-plugin -->
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>
-        </plugins>
-    </build>
-
     <dependencies>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-security</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-thymeleaf</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-oauth2-client</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-devtools</artifactId>
-        </dependency>
         <!-- webjars -->
         <dependency>
             <groupId>org.webjars</groupId>

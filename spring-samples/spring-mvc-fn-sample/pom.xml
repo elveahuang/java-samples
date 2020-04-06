@@ -5,9 +5,9 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>cn.elvea.repo</groupId>
-        <artifactId>spring-parent</artifactId>
+        <artifactId>spring-project-parent</artifactId>
         <version>1.0.0</version>
-        <relativePath>../../spring-parent/pom.xml</relativePath>
+        <relativePath>../../spring-project-parent/pom.xml</relativePath>
     </parent>
     <artifactId>spring-mvc-fn-sample</artifactId>
     <description>Spring MVC Function Sample</description>

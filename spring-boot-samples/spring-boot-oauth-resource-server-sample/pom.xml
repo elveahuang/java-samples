@@ -9,15 +9,10 @@
         <version>1.0.0</version>
         <relativePath>../../spring-parent/pom.xml</relativePath>
     </parent>
-    <artifactId>spring-boot-base-sample</artifactId>
-    <description>Spring Boot Base Sample</description>
+    <artifactId>spring-boot-oauth-resource-server-sample</artifactId>
+    <description>Spring Boot OAuth Resource Server Sample</description>
     <version>1.0.0</version>
-    <packaging>war</packaging>
-
+    <packaging>jar</packaging>
     <dependencies>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
     </dependencies>
 </project>
