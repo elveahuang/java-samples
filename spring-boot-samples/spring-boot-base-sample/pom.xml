@@ -9,7 +9,7 @@
         <version>1.0.0</version>
         <relativePath>../../spring-parent/pom.xml</relativePath>
     </parent>
-    <artifactId>spring-boot-base</artifactId>
+    <artifactId>spring-boot-base-sample</artifactId>
     <description>Spring Boot Base Sample</description>
     <version>1.0.0</version>
     <packaging>war</packaging>
