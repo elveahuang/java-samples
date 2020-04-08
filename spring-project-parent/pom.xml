@@ -84,6 +84,7 @@
         <poi.version>4.1.2</poi.version>
         <pdfbox.version>2.0.19</pdfbox.version>
         <jetty.version>9.4.27.v20200227</jetty.version>
+        <nimbus-jose-jwt.version>8.12</nimbus-jose-jwt.version>
         <!-- webjars -->
         <webjars-jquery.version>3.4.1</webjars-jquery.version>
         <webjars-jquery-form.version>4.2.2</webjars-jquery-form.version>
@@ -116,6 +117,12 @@
                 <groupId>org.springframework.security.oauth.boot</groupId>
                 <artifactId>spring-security-oauth2-autoconfigure</artifactId>
                 <version>${spring-boot-oauth.version}</version>
+            </dependency>
+            <!-- 3rd party -->
+            <dependency>
+                <groupId>com.nimbusds</groupId>
+                <artifactId>nimbus-jose-jwt</artifactId>
+                <version>${nimbus-jose-jwt.version}</version>
             </dependency>
             <!-- webjars -->
             <dependency>
