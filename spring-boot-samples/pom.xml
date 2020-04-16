@@ -12,5 +12,6 @@
         <module>spring-boot-oauth-resource-server-sample</module>
         <module>spring-boot-oauth-client-sample</module>
         <module>spring-boot-oauth-sample</module>
+        <module>spring-boot-jdbc-sample</module>
     </modules>
 </project>
