@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <th:block th:include="include/commons :: meta"/>
+    <title>Home</title>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-6 offset-3">
+            Home
+        </div>
+    </div>
+</div>
+<th:block th:include="include/commons :: js"/>
+<script type="text/javascript">
+    var webSocket = null;
+    $(function () {
+        webSocket = new SockJS('http://localhost:8080/text');
+        webSocket.onopen = function () {
+            console.log('open...');
+        }
+        webSocket.onmessage = function (e) {
+            console.log('message', e.data);
+        };
+        webSocket.onclose = function () {
+            console.log('close');
+        };
+    });
+</script>
+</body>
+</html>

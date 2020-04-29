@@ -13,5 +13,6 @@
         <module>spring-boot-oauth-client-sample</module>
         <module>spring-boot-oauth-sample</module>
         <module>spring-boot-jdbc-sample</module>
+        <module>spring-boot-web-socket-sample</module>
     </modules>
 </project>
