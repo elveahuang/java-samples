@@ -1,7 +1,7 @@
 package cn.elvea.samples.spring.boot.websocket.config;
 
-import cn.elvea.samples.spring.boot.websocket.handler.DefaultHandler;
-import cn.elvea.samples.spring.boot.websocket.interceptor.DefaultHandshakeInterceptor;
+import cn.elvea.samples.spring.boot.websocket.handler.MessageWebSocketHandler;
+import cn.elvea.samples.spring.boot.websocket.interceptor.SessionHandshakeInterceptor;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.socket.config.annotation.EnableWebSocket;
 import org.springframework.web.socket.config.annotation.WebSocketConfigurer;
@@ -16,18 +16,23 @@ import org.springframework.web.socket.config.annotation.WebSocketHandlerRegistry
 @EnableWebSocket
 public class WebSocketConfig implements WebSocketConfigurer {
 
-    private final DefaultHandler defaultHandler;
+    private final MessageWebSocketHandler messageWebSocketHandler;
 
-    private final DefaultHandshakeInterceptor handshakeInterceptor;
+    private final SessionHandshakeInterceptor handshakeInterceptor;
 
-    public WebSocketConfig(DefaultHandler defaultHandler, DefaultHandshakeInterceptor handshakeInterceptor) {
-        this.defaultHandler = defaultHandler;
+    public WebSocketConfig(MessageWebSocketHandler messageWebSocketHandler,
+                           SessionHandshakeInterceptor handshakeInterceptor) {
+        this.messageWebSocketHandler = messageWebSocketHandler;
         this.handshakeInterceptor = handshakeInterceptor;
     }
 
     @Override
     public void registerWebSocketHandlers(WebSocketHandlerRegistry registry) {
-        registry.addHandler(this.defaultHandler, "/text")
+        registry.addHandler(this.messageWebSocketHandler, "/socket")
+                .setAllowedOrigins("*")
+                .addInterceptors(this.handshakeInterceptor);
+
+        registry.addHandler(this.messageWebSocketHandler, "/socket/sock-js")
                 .setAllowedOrigins("*")
                 .addInterceptors(this.handshakeInterceptor)
                 .withSockJS();

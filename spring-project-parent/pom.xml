@@ -83,6 +83,7 @@
         <jodconverter.version>4.3.0</jodconverter.version>
         <poi.version>4.1.2</poi.version>
         <pdfbox.version>2.0.19</pdfbox.version>
+        <redisson.version>3.12.5</redisson.version>
         <jetty.version>9.4.28.v20200408</jetty.version>
         <nimbus-jose-jwt.version>8.14.1</nimbus-jose-jwt.version>
         <!-- maven -->
@@ -93,8 +94,8 @@
         <webjars-jquery-validation.version>1.19.0</webjars-jquery-validation.version>
         <webjars-js-cookie.version>2.2.1</webjars-js-cookie.version>
         <webjars-popper-js.version>2.0.2</webjars-popper-js.version>
-        <webjars-sockjs-client.version>1.4.0</webjars-sockjs-client.version>
-        <webjars-stomp-websocket.version>2.3.4</webjars-stomp-websocket.version>
+        <webjars-sock-js.version>1.4.0</webjars-sock-js.version>
+        <webjars-stomp-js.version>5.4.3</webjars-stomp-js.version>
         <webjars-socket-io-client.version>2.3.0</webjars-socket-io-client.version>
         <webjars-bootstrap.version>4.4.1-1</webjars-bootstrap.version>
         <webjars-handlebars.version>4.5.3</webjars-handlebars.version>
@@ -129,6 +130,11 @@
                 <artifactId>nimbus-jose-jwt</artifactId>
                 <version>${nimbus-jose-jwt.version}</version>
             </dependency>
+            <dependency>
+                <groupId>org.redisson</groupId>
+                <artifactId>redisson</artifactId>
+                <version>${redisson.version}</version>
+            </dependency>
             <!-- webjars -->
             <dependency>
                 <groupId>org.webjars</groupId>
@@ -158,17 +164,12 @@
             <dependency>
                 <groupId>org.webjars.bower</groupId>
                 <artifactId>sockjs-client</artifactId>
-                <version>${webjars-sockjs-client.version}</version>
+                <version>${webjars-sock-js.version}</version>
             </dependency>
             <dependency>
-                <groupId>org.webjars.bower</groupId>
-                <artifactId>sockjs-client</artifactId>
-                <version>${webjars-sockjs-client.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.webjars.bower</groupId>
-                <artifactId>stomp-websocket</artifactId>
-                <version>${webjars-stomp-websocket.version}</version>
+                <groupId>org.webjars.npm</groupId>
+                <artifactId>stomp__stompjs</artifactId>
+                <version>${webjars-stomp-js.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.webjars</groupId>

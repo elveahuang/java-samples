@@ -3,13 +3,13 @@ package cn.elvea.samples.spring.boot.websocket.service;
 import cn.elvea.samples.spring.boot.websocket.message.SocketMessage;
 
 /**
- * WebSocketService
+ * RedisService
  *
  * @author elvea
  */
-public interface WebSocketService {
+public interface RedisService {
 
-    void sendMessage();
+    String WEB_SOCKET_TOPIC = "Web_Socket_Topic";
 
     void sendMessage(SocketMessage socketMessage);
 

@@ -46,12 +46,20 @@
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-redis</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-devtools</artifactId>
         </dependency>
         <!-- 3rd party -->
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.redisson</groupId>
+            <artifactId>redisson</artifactId>
         </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>
@@ -84,8 +92,8 @@
             <artifactId>sockjs-client</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.webjars.bower</groupId>
-            <artifactId>stomp-websocket</artifactId>
+            <groupId>org.webjars.npm</groupId>
+            <artifactId>stomp__stompjs</artifactId>
         </dependency>
         <dependency>
             <groupId>org.webjars</groupId>

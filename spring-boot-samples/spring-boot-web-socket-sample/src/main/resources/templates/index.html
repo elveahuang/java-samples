@@ -18,17 +18,90 @@
 </div>
 <th:block th:include="include/commons :: js"/>
 <script type="text/javascript">
-    var webSocket = null;
-    var webSocketClient = null;
     $(function () {
-        webSocket = new SockJS('http://localhost:8080/web-socket');
-        var webSocketClient = Stomp.over(webSocket);
-        webSocketClient.connect({}, function () {
-            webSocketClient.subscribe('/message', function (message) {
-                console.log(message);
-            });
-        });
+        webSocketWithSockJs();
+        webSocketWithoutSockJs();
+        stompWithSockJs();
+        stomp();
     });
+
+    function webSocketWithSockJs() {
+        var webSocketSockJsClient = new SockJS("http://127.0.0.1:8080/socket/sock-js?t=" + Math.random());
+        webSocketSockJsClient.onopen = function (ev) {
+            console.log('socket with sock js open', ev);
+        }
+        webSocketSockJsClient.onclose = function (ev) {
+            console.log('socket with sock js close', ev);
+        }
+        webSocketSockJsClient.onmessage = function (ev) {
+            console.log('socket with sock js message', ev);
+        }
+    }
+
+    function webSocketWithoutSockJs() {
+        var webSocket = new WebSocket("ws://127.0.0.1:8080/socket?t=" + Math.random());
+        webSocket.onopen = function (ev) {
+            console.log('socket without sock js open', ev);
+        }
+        webSocket.onclose = function (ev) {
+            console.log('socket without sock js close', ev);
+        }
+        webSocket.onmessage = function (ev) {
+            console.log('socket without sock js message', ev);
+        }
+    }
+
+    function stompWithSockJs() {
+        var stompWebSocketClient = new StompJs.Client({
+            brokerURL: "ws://127.0.0.1:8080/web-socket?t=" + Math.random(),
+            connectHeaders: {
+                "X-AUTH-TOKEN": "Bearer xxxxx"
+            },
+            debug: function (str) {
+                console.log(str);
+            },
+            webSocketFactory: function () {
+                return new SockJS("/web-socket/sock-js?token=xxx");
+            }
+        });
+        stompWebSocketClient.onConnect = function (frame) {
+            console.log('stomp with sock js connect', frame);
+
+            stompWebSocketClient.subscribe("/message", function (e) {
+                console.log('stomp with sock js message', e);
+            });
+        };
+        stompWebSocketClient.onStompError = function (frame) {
+            console.log('stomp with sock js error', frame);
+        };
+        stompWebSocketClient.activate();
+    }
+
+    function stomp() {
+        var stompWebSocketClient = new StompJs.Client({
+            brokerURL: "ws://127.0.0.1:8080/web-socket?t=" + Math.random(),
+            connectHeaders: {
+                "X-AUTH-TOKEN": "Bearer xxxxx"
+            },
+            debug: function (str) {
+                console.log(str);
+            },
+            reconnectDelay: 5000,
+            heartbeatIncoming: 4000,
+            heartbeatOutgoing: 4000
+        });
+        stompWebSocketClient.onConnect = function (frame) {
+            console.log('stomp connect', frame);
+
+            stompWebSocketClient.subscribe("/message", function (e) {
+                console.log('stomp message', e);
+            });
+        };
+        stompWebSocketClient.onStompError = function (frame) {
+            console.log('stomp with sock js error', frame);
+        };
+        stompWebSocketClient.activate();
+    }
 </script>
 </body>
 </html>
