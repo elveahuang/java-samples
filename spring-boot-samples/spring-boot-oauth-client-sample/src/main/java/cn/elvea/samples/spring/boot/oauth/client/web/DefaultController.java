@@ -1,4 +1,4 @@
-package cn.elvea.samples.spring.boot.oauth.web;
+package cn.elvea.samples.spring.boot.oauth.client.web;
 
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;

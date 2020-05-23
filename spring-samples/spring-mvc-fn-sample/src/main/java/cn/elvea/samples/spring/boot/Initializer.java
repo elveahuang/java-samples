@@ -1,7 +1,7 @@
 package cn.elvea.samples.spring.boot;
 
-import cn.elvea.samples.spring.boot.oauth.config.Config;
-import cn.elvea.samples.spring.boot.oauth.config.WebMvcConfig;
+import cn.elvea.samples.spring.boot.oauth.client.config.Config;
+import cn.elvea.samples.spring.boot.oauth.client.config.WebMvcConfig;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
 public class Initializer extends AbstractAnnotationConfigDispatcherServletInitializer {
