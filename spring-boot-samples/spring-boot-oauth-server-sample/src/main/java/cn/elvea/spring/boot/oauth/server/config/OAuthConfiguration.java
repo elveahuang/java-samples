@@ -7,19 +7,13 @@ import org.springframework.security.oauth2.jwt.JwtDecoder;
 import org.springframework.security.oauth2.jwt.NimbusJwtDecoder;
 
 /**
- * ResourceServerConfiguration
+ * OAuthCommonConfiguration
  *
  * @author elvea
  */
 @Configuration
-public class ResourceServerConfiguration {
+public class OAuthConfiguration {
 
-    @Value("${spring.security.oauth2.resourceserver.jwt.jwk-set-uri}")
-    String jwkSetUri;
 
-    @Bean
-    JwtDecoder jwtDecoder() {
-        return NimbusJwtDecoder.withJwkSetUri(this.jwkSetUri).build();
-    }
 
 }

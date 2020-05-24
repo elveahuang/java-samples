@@ -1,18 +1,18 @@
-package cn.elvea.samples.spring.boot.oauth.client;
+package cn.elvea.spring.boot.oauth.server;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
- * SpringBootOAuthApplication
+ * SpringBootOAuthServerApplication
  *
  * @author elvea
  */
 @SpringBootApplication
-public class SpringBootOAuthApplication {
+public class SpringBootOAuthServerApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(SpringBootOAuthApplication.class, args);
+        SpringApplication.run(SpringBootOAuthServerApplication.class, args);
     }
 
 }

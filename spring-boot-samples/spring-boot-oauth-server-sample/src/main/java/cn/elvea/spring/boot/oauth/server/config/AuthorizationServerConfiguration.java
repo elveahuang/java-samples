@@ -7,7 +7,7 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.oauth2.config.annotation.configurers.ClientDetailsServiceConfigurer;
-import org.springframework.security.oauth2.config.annotation.web.configuration.AuthorizationServerConfigurerAdapter;
+import org.springframework.security.oauth2.config.annotation.web.configuration.AuthorizationServerConfigurer;
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableAuthorizationServer;
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerEndpointsConfigurer;
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerSecurityConfigurer;
@@ -19,28 +19,19 @@ import org.springframework.security.oauth2.provider.token.store.JwtTokenStore;
 import java.security.KeyPair;
 
 /**
- * SpringAuthorizationServerConfiguration
+ * AuthorizationServerConfiguration
  *
  * @author elvea
  */
 @Configuration
 @EnableAuthorizationServer
-public class AuthorizationServerConfiguration extends AuthorizationServerConfigurerAdapter {
+public class AuthorizationServerConfiguration implements AuthorizationServerConfigurer {
 
-    /**
-     * AuthenticationManager
-     */
-    private AuthenticationManager authenticationManager;
+    private final AuthenticationManager authenticationManager;
 
-    /**
-     * KeyPair
-     */
-    private KeyPair keyPair;
+    private final KeyPair keyPair;
 
-    /**
-     * jwtEnabled
-     */
-    private PasswordEncoder passwordEncoder;
+    private final PasswordEncoder passwordEncoder;
 
     public AuthorizationServerConfiguration(
             AuthenticationConfiguration authenticationConfiguration,
@@ -60,7 +51,7 @@ public class AuthorizationServerConfiguration extends AuthorizationServerConfigu
                 .authorizedGrantTypes("client_credentials", "authorization_code", "password", "implicit", "refresh_token")
                 .secret(this.passwordEncoder.encode("webapp"))
                 .scopes("webapp", "profile")
-                .autoApprove(true)
+                .autoApprove(false)
                 .redirectUris("http://127.0.0.1:8081/login/oauth2/code/webapp")
                 .accessTokenValiditySeconds(600_000_000);
     }
@@ -94,4 +85,5 @@ public class AuthorizationServerConfiguration extends AuthorizationServerConfigu
 
         return converter;
     }
+
 }

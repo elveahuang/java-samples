@@ -18,14 +18,14 @@ import org.springframework.security.provisioning.InMemoryUserDetailsManager;
  * @author elvea
  */
 @Configuration
-public class WebSecuritConfiguration extends WebSecurityConfigurerAdapter {
+public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     /**
      * PasswordEncoder
      */
     private PasswordEncoder passwordEncoder;
 
-    public WebSecuritConfiguration(PasswordEncoder passwordEncoder) {
+    public WebSecurityConfiguration(PasswordEncoder passwordEncoder) {
         this.passwordEncoder = passwordEncoder;
     }
 

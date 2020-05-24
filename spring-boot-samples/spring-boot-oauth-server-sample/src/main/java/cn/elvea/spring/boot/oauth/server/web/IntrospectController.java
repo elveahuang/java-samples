@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.stream.Collectors;
 
 /**
  * IntrospectEndpoint
@@ -19,9 +18,10 @@ import java.util.stream.Collectors;
  */
 @FrameworkEndpoint
 class IntrospectController {
-    TokenStore tokenStore;
 
-    IntrospectController(TokenStore tokenStore) {
+    private final TokenStore tokenStore;
+
+    public IntrospectController(TokenStore tokenStore) {
         this.tokenStore = tokenStore;
     }
 
@@ -39,9 +39,10 @@ class IntrospectController {
 
         attributes.put("active", true);
         attributes.put("exp", accessToken.getExpiration().getTime());
-        attributes.put("scope", accessToken.getScope().stream().collect(Collectors.joining(" ")));
+        attributes.put("scope", String.join(" ", accessToken.getScope()));
         attributes.put("sub", authentication.getName());
 
         return attributes;
     }
+
 }

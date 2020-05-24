@@ -39,7 +39,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <!-- spring -->
         <spring-boot.version>2.3.0.RELEASE</spring-boot.version>
-        <spring-boot-oauth.version>2.2.7.RELEASE</spring-boot-oauth.version>
+        <spring-boot-oauth.version>2.3.0.RELEASE</spring-boot-oauth.version>
         <spring-cloud.version>Hoxton.SR4</spring-cloud.version>
         <!-- jdbc -->
         <mysql.version>8.0.20</mysql.version>
@@ -89,7 +89,7 @@
         <!-- maven -->
         <lombok-maven-plugin.version>1.18.12.0</lombok-maven-plugin.version>
         <!-- webjars -->
-        <webjars-jquery.version>3.5.0</webjars-jquery.version>
+        <webjars-jquery.version>3.5.1</webjars-jquery.version>
         <webjars-jquery-form.version>4.2.2</webjars-jquery-form.version>
         <webjars-jquery-validation.version>1.19.0</webjars-jquery-validation.version>
         <webjars-js-cookie.version>2.2.1</webjars-js-cookie.version>
@@ -97,9 +97,9 @@
         <webjars-sock-js.version>1.4.0</webjars-sock-js.version>
         <webjars-stomp-js.version>5.4.3</webjars-stomp-js.version>
         <webjars-socket-io-client.version>2.3.0</webjars-socket-io-client.version>
-        <webjars-bootstrap.version>4.4.1-1</webjars-bootstrap.version>
+        <webjars-bootstrap.version>4.5.0</webjars-bootstrap.version>
         <webjars-handlebars.version>4.5.3</webjars-handlebars.version>
-        <webjars-font-awesome.version>5.12.0</webjars-font-awesome.version>
+        <webjars-font-awesome.version>5.13.0</webjars-font-awesome.version>
         <webjars-locator-core.version>0.44</webjars-locator-core.version>
     </properties>
 

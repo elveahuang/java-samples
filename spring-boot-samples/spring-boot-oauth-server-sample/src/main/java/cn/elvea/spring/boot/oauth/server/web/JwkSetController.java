@@ -17,9 +17,10 @@ import java.util.Map;
  */
 @Controller
 class JwkSetController {
-    KeyPair keyPair;
 
-    JwkSetController(KeyPair keyPair) {
+    private final KeyPair keyPair;
+
+    public JwkSetController(KeyPair keyPair) {
         this.keyPair = keyPair;
     }
 

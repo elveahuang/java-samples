@@ -17,10 +17,12 @@ import java.util.Map;
 @RestController
 @RequestMapping("/")
 public class UserController {
+
     @RequestMapping("/user")
     public Object getUserInfo(@AuthenticationPrincipal Jwt principal) {
         Map<String, String> map = new LinkedHashMap<>();
         map.put("username", principal.getClaimAsString("username"));
         return Collections.unmodifiableMap(map);
     }
+
 }
