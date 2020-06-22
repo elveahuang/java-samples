@@ -9,8 +9,8 @@
         <version>1.0.0</version>
         <relativePath>../../spring-project-parent/pom.xml</relativePath>
     </parent>
-    <artifactId>spring-boot-jdbc-sample</artifactId>
-    <description>Spring Boot JDBC Sample</description>
+    <artifactId>spring-boot-jdbc-mybatis-sample</artifactId>
+    <description>Spring Boot JDBC With MyBatis Sample</description>
     <version>1.0.0</version>
     <packaging>jar</packaging>
 
@@ -45,7 +45,24 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
+        <!-- mybatis -->
+        <dependency>
+            <groupId>org.mybatis</groupId>
+            <artifactId>mybatis</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.mybatis</groupId>
+            <artifactId>mybatis-spring</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.mybatis.spring.boot</groupId>
+            <artifactId>mybatis-spring-boot-starter</artifactId>
+        </dependency>
         <!-- webjars -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
+        </dependency>
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>

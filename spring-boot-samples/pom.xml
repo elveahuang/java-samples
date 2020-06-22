@@ -9,6 +9,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>spring-boot-jdbc-sample</module>
+        <module>spring-boot-jdbc-mybatis-sample</module>
         <module>spring-boot-oauth-server-sample</module>
         <module>spring-boot-oauth-client-sample</module>
         <module>spring-boot-web-socket-sample</module>
