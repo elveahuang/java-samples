@@ -2,6 +2,7 @@ package cn.elvea.samples.spring.boot.jdbc.config;
 
 import cn.elvea.samples.spring.boot.jdbc.mybatis.MyBatisNamespaceStrategy;
 import org.apache.ibatis.session.SqlSession;
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -20,6 +21,7 @@ import org.springframework.jdbc.core.namedparam.NamedParameterJdbcOperations;
  * @author elvea
  */
 @EnableJdbcRepositories("cn.elvea.samples.spring.boot.jdbc.repository")
+@MapperScan("cn.elvea.samples.spring.boot.jdbc.mapper")
 @Configuration(proxyBeanMethods = false)
 public class Config extends AbstractJdbcConfiguration {
 

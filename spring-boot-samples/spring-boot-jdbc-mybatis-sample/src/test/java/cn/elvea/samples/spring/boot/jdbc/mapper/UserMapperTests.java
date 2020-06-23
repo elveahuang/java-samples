@@ -1,7 +1,5 @@
-package cn.elvea.samples.spring.boot.jdbc.repository;
+package cn.elvea.samples.spring.boot.jdbc.mapper;
 
-import cn.elvea.samples.spring.boot.jdbc.domain.User;
-import cn.elvea.samples.spring.boot.jdbc.mapper.UserMapper;
 import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
 import org.junit.runner.RunWith;
@@ -12,28 +10,24 @@ import org.springframework.test.context.junit4.SpringRunner;
 import java.util.Date;
 
 /**
- * UserRepositoryTests
+ * UserMapperTests
  *
  * @author elvea
  */
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class UserRepositoryTests {
+public class UserMapperTests {
 
     @Autowired
     UserMapper userMapper;
 
-    @Autowired
-    UserRepository userRepository;
-
     @Test
     public void test() {
-        Assertions.assertNotNull(this.userRepository);
         Assertions.assertNotNull(this.userMapper);
-        User user = this.userRepository.findById(1L).orElse(null);
-        Assertions.assertNotNull(user);
+
         Date date = this.userMapper.getCurDate();
         Assertions.assertNotNull(date);
+
     }
 
 }
