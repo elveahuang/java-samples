@@ -38,8 +38,8 @@
         <project.build.version>1.0.0</project.build.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <!-- spring -->
-        <spring-boot.version>2.3.3.RELEASE</spring-boot.version>
-        <spring-boot-oauth.version>2.3.3.RELEASE</spring-boot-oauth.version>
+        <spring-boot.version>2.3.4.RELEASE</spring-boot.version>
+        <spring-boot-oauth.version>2.3.4.RELEASE</spring-boot-oauth.version>
         <spring-cloud.version>Hoxton.SR8</spring-cloud.version>
         <!-- jdbc -->
         <mysql.version>8.0.21</mysql.version>
@@ -48,18 +48,17 @@
         <oracle.version>19.3.0.0</oracle.version>
         <postgresql.version>42.2.16</postgresql.version>
         <!-- database -->
-        <druid.version>1.1.23</druid.version>
-        <druid-spring-boot-starter.version>1.1.23</druid-spring-boot-starter.version>
-        <redisson.version>3.13.3</redisson.version>
+        <druid.version>1.2.1</druid.version>
+        <redisson.version>3.13.5</redisson.version>
         <jsqlparser.version>3.2</jsqlparser.version>
         <!-- mybatis -->
-        <mybatis.version>3.5.5</mybatis.version>
+        <mybatis.version>3.5.6</mybatis.version>
         <mybatis-spring.version>2.0.5</mybatis-spring.version>
         <mybatis-spring-boot.version>2.1.3</mybatis-spring-boot.version>
         <mybatis-plus.version>3.4.0</mybatis-plus.version>
         <!-- commons -->
-        <commons-io.version>2.6</commons-io.version>
-        <commons-codec.version>1.14</commons-codec.version>
+        <commons-io.version>2.8.0</commons-io.version>
+        <commons-codec.version>1.15</commons-codec.version>
         <commons-beanutils.version>1.9.4</commons-beanutils.version>
         <commons-fileupload.version>1.4</commons-fileupload.version>
         <!-- org.apache.commons -->
@@ -68,38 +67,32 @@
         <commons-csv.version>1.8</commons-csv.version>
         <commons-email.version>1.5</commons-email.version>
         <commons-lang-3.version>3.11</commons-lang-3.version>
-        <commons-text.version>1.8</commons-text.version>
+        <commons-text.version>1.9</commons-text.version>
         <commons-pool-2.version>2.7.0</commons-pool-2.version>
         <!-- 3rd party -->
-        <asm.version>8.0.1</asm.version>
+        <asm.version>9.0</asm.version>
         <javassist.version>3.27.0-GA</javassist.version>
         <dom4j-2.version>2.1.3</dom4j-2.version>
         <ognl.version>3.2.14</ognl.version>
         <guava.version>29.0-jre</guava.version>
-        <okhttp.version>4.8.0</okhttp.version>
-        <okio.version>2.7.0</okio.version>
-        <flowable.version>6.5.0</flowable.version>
+        <okio.version>2.9.0</okio.version>
+        <flowable.version>6.6.0</flowable.version>
         <libreoffice.version>6.3.2</libreoffice.version>
         <jodconverter.version>4.3.0</jodconverter.version>
         <poi.version>4.1.2</poi.version>
-        <pdfbox.version>2.0.20</pdfbox.version>
-        <redisson.version>3.13.2</redisson.version>
-        <jetty.version>9.4.31.v20200723</jetty.version>
-        <nimbus-jose-jwt.version>8.20</nimbus-jose-jwt.version>
+        <pdfbox.version>2.0.21</pdfbox.version>
         <!-- maven -->
+        <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
+        <maven-war-plugin.version>3.3.1</maven-war-plugin.version>
+        <jetty-maven-plugin.version>9.4.31.v20200723</jetty-maven-plugin.version>
         <lombok-maven-plugin.version>1.18.12.0</lombok-maven-plugin.version>
         <!-- webjars -->
         <webjars-jquery.version>3.5.1</webjars-jquery.version>
-        <webjars-jquery-form.version>4.2.2</webjars-jquery-form.version>
-        <webjars-jquery-validation.version>1.19.0</webjars-jquery-validation.version>
-        <webjars-js-cookie.version>2.2.1</webjars-js-cookie.version>
-        <webjars-popper-js.version>2.0.2</webjars-popper-js.version>
+        <webjars-popper-js.version>2.5.2</webjars-popper-js.version>
+        <webjars-bootstrap.version>4.5.2</webjars-bootstrap.version>
         <webjars-sock-js.version>1.4.0</webjars-sock-js.version>
         <webjars-stomp-js.version>5.4.3</webjars-stomp-js.version>
         <webjars-socket-io-client.version>2.3.0</webjars-socket-io-client.version>
-        <webjars-bootstrap.version>4.5.0</webjars-bootstrap.version>
-        <webjars-handlebars.version>4.5.3</webjars-handlebars.version>
-        <webjars-font-awesome.version>5.13.0</webjars-font-awesome.version>
         <webjars-locator-core.version>0.44</webjars-locator-core.version>
     </properties>
 
@@ -142,11 +135,6 @@
             </dependency>
             <!-- 3rd party -->
             <dependency>
-                <groupId>com.nimbusds</groupId>
-                <artifactId>nimbus-jose-jwt</artifactId>
-                <version>${nimbus-jose-jwt.version}</version>
-            </dependency>
-            <dependency>
                 <groupId>org.redisson</groupId>
                 <artifactId>redisson</artifactId>
                 <version>${redisson.version}</version>
@@ -167,21 +155,6 @@
                 <groupId>org.webjars</groupId>
                 <artifactId>jquery</artifactId>
                 <version>${webjars-jquery.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.webjars</groupId>
-                <artifactId>jquery-form</artifactId>
-                <version>${webjars-jquery-form.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.webjars</groupId>
-                <artifactId>jquery-validation</artifactId>
-                <version>${webjars-jquery-validation.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.webjars</groupId>
-                <artifactId>js-cookie</artifactId>
-                <version>${webjars-js-cookie.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.webjars</groupId>
@@ -212,64 +185,48 @@
     </dependencyManagement>
 
     <build>
-        <pluginManagement>
-            <plugins>
-                <!-- compiler -->
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-compiler-plugin</artifactId>
-                    <configuration>
-                        <source>${project.source}</source>
-                        <target>${project.target}</target>
-                        <encoding>${project.encoding}</encoding>
-                    </configuration>
-                </plugin>
-
-                <!-- war -->
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-war-plugin</artifactId>
-                    <configuration>
-                        <failOnMissingWebXml>false</failOnMissingWebXml>
-                    </configuration>
-                </plugin>
-
-                <!-- spring-boot-maven-plugin -->
-                <plugin>
-                    <groupId>org.springframework.boot</groupId>
-                    <artifactId>spring-boot-maven-plugin</artifactId>
-                    <version>${spring-boot.version}</version>
-                </plugin>
-
-                <!-- lombok-maven-plugin -->
-                <plugin>
-                    <groupId>org.projectlombok</groupId>
-                    <artifactId>lombok-maven-plugin</artifactId>
-                    <version>${lombok-maven-plugin.version}</version>
-                    <executions>
-                        <execution>
-                            <phase>generate-sources</phase>
-                            <goals>
-                                <goal>delombok</goal>
-                            </goals>
-                        </execution>
-                    </executions>
-                </plugin>
-
-                <!-- jetty-maven-plugin -->
-                <plugin>
-                    <groupId>org.eclipse.jetty</groupId>
-                    <artifactId>jetty-maven-plugin</artifactId>
-                    <version>${jetty.version}</version>
-                </plugin>
-            </plugins>
-        </pluginManagement>
-
         <plugins>
+            <!-- compiler -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>${maven-compiler-plugin.version}</version>
+                <configuration>
+                    <source>${project.source}</source>
+                    <target>${project.target}</target>
+                    <encoding>${project.encoding}</encoding>
+                </configuration>
+            </plugin>
+
+            <!-- war -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>${maven-war-plugin.version}</version>
+                <configuration>
+                    <failOnMissingWebXml>false</failOnMissingWebXml>
+                </configuration>
+            </plugin>
+
+            <!-- spring-boot-maven-plugin -->
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>${spring-boot.version}</version>
+            </plugin>
+
             <!-- lombok-maven-plugin -->
             <plugin>
                 <groupId>org.projectlombok</groupId>
                 <artifactId>lombok-maven-plugin</artifactId>
+                <version>${lombok-maven-plugin.version}</version>
+            </plugin>
+
+            <!-- jetty-maven-plugin -->
+            <plugin>
+                <groupId>org.eclipse.jetty</groupId>
+                <artifactId>jetty-maven-plugin</artifactId>
+                <version>${jetty-maven-plugin.version}</version>
             </plugin>
         </plugins>
     </build>

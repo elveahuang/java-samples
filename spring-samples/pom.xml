@@ -8,8 +8,8 @@
     <version>1.0.0</version>
     <packaging>pom</packaging>
     <modules>
+        <module>spring-fn-sample</module>
         <module>spring-mvc-sample</module>
-        <module>spring-mvc-fn-sample</module>
         <module>spring-webflux-sample</module>
     </modules>
 </project>
