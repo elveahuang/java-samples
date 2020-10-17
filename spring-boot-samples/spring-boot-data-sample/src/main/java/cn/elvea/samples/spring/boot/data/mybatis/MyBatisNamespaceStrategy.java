@@ -4,11 +4,6 @@ package cn.elvea.samples.spring.boot.data.mybatis;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.jdbc.mybatis.NamespaceStrategy;
 
-/**
- * MyBatisNamespaceStrategy
- *
- * @author elvea
- */
 @Slf4j
 public class MyBatisNamespaceStrategy implements NamespaceStrategy {
 
