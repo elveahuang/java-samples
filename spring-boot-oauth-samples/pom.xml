@@ -4,11 +4,12 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>cn.elvea.repo</groupId>
-    <artifactId>spring-boot-samples</artifactId>
+    <artifactId>spring-boot-oauth-samples</artifactId>
     <version>1.0.0</version>
     <packaging>pom</packaging>
     <modules>
-        <module>spring-boot-data-sample</module>
-        <module>spring-boot-web-socket-sample</module>
+        <module>spring-boot-authorization-server-sample</module>
+        <module>spring-boot-resource-server-sample</module>
+        <module>spring-boot-client-sample</module>
     </modules>
 </project>

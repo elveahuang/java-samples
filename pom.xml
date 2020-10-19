@@ -12,6 +12,7 @@
         <module>spring-project-parent</module>
         <module>spring-samples</module>
         <module>spring-boot-samples</module>
+        <module>spring-boot-oauth-samples</module>
         <module>spring-cloud-samples</module>
     </modules>
 </project>

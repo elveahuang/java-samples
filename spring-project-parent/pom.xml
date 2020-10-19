@@ -39,6 +39,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <!-- spring -->
         <spring-boot.version>2.3.4.RELEASE</spring-boot.version>
+        <spring-authorization-server.version>0.0.2</spring-authorization-server.version>
         <spring-boot-oauth.version>2.3.4.RELEASE</spring-boot-oauth.version>
         <spring-cloud.version>Hoxton.SR8</spring-cloud.version>
         <!-- jdbc -->
