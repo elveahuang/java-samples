@@ -42,16 +42,11 @@
         <spring-authorization-server.version>0.0.2</spring-authorization-server.version>
         <spring-boot-oauth.version>2.3.4.RELEASE</spring-boot-oauth.version>
         <spring-cloud.version>Hoxton.SR8</spring-cloud.version>
-        <!-- jdbc -->
-        <mysql.version>8.0.21</mysql.version>
-        <mariadb.version>2.6.2</mariadb.version>
-        <mssql.version>8.4.1.jre8</mssql.version>
-        <oracle.version>19.3.0.0</oracle.version>
-        <postgresql.version>42.2.16</postgresql.version>
         <!-- database -->
         <druid.version>1.2.1</druid.version>
         <redisson.version>3.13.5</redisson.version>
         <jsqlparser.version>3.2</jsqlparser.version>
+        <sharding-sphere.version>4.1.1</sharding-sphere.version>
         <!-- mybatis -->
         <mybatis.version>3.5.6</mybatis.version>
         <mybatis-spring.version>2.0.5</mybatis-spring.version>
@@ -113,12 +108,17 @@
                 <scope>import</scope>
                 <type>pom</type>
             </dependency>
-            <dependency><!-- spring-security-oauth2-autoconfigure -->
+            <dependency><!-- spring-security-oauth-autoconfigure -->
                 <groupId>org.springframework.security.oauth.boot</groupId>
                 <artifactId>spring-security-oauth2-autoconfigure</artifactId>
                 <version>${spring-boot-oauth.version}</version>
             </dependency>
-            <!-- mybatis -->
+            <!-- database -->
+            <dependency>
+                <groupId>org.apache.shardingsphere</groupId>
+                <artifactId>sharding-jdbc-core</artifactId>
+                <version>${sharding-sphere.version}</version>
+            </dependency>
             <dependency>
                 <groupId>org.mybatis</groupId>
                 <artifactId>mybatis</artifactId>
