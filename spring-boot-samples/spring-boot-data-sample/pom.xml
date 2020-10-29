@@ -76,6 +76,10 @@
             <groupId>org.mybatis.spring.boot</groupId>
             <artifactId>mybatis-spring-boot-starter</artifactId>
         </dependency>
+        <dependency>
+            <groupId>org.apache.shardingsphere</groupId>
+            <artifactId>sharding-jdbc-core</artifactId>
+        </dependency>
         <!-- webjars -->
         <dependency>
             <groupId>mysql</groupId>

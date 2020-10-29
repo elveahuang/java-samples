@@ -3,7 +3,7 @@
 */
 DROP DATABASE IF EXISTS `java-samples`;
 
-CREATE DATABASE IF NOT EXISTS `java-samples` DEFAULT CHARACTER SET `utf8mb4` DEFAULT COLLATE `utf8mb4_unicode_ci`;
+CREATE DATABASE IF NOT EXISTS `java-samples` DEFAULT CHARACTER SET `utf8mb4` DEFAULT COLLATE `utf8mb4_0900_ai_ci`;
 
 USE `java-samples`;
 
