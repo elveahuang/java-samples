@@ -20,6 +20,7 @@ CREATE TABLE `sys_user`
     `fullname`    VARCHAR(255) COMMENT '全名',
     `password`    VARCHAR(255) COMMENT '密码',
     `status`      TINYINT(1) UNSIGNED NOT NULL DEFAULT 1 COMMENT '用户状态',
+    `source`      TINYINT(1) UNSIGNED NOT NULL DEFAULT 1 COMMENT '用户来源',
     `active`      TINYINT(1) UNSIGNED NOT NULL DEFAULT 1 COMMENT '启用状态',
     `created_at`  DATETIME COMMENT '创建时间',
     `created_by`  BIGINT UNSIGNED COMMENT '创建人',

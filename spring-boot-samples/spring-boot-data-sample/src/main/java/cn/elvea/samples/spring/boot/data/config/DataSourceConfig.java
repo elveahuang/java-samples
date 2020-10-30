@@ -13,6 +13,7 @@ import org.springframework.boot.context.properties.EnableConfigurationProperties
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
+import org.springframework.jdbc.core.JdbcTemplate;
 
 import javax.sql.DataSource;
 import java.sql.SQLException;
@@ -33,6 +34,11 @@ public class DataSourceConfig {
 
     @Autowired
     private CustomProperties customProperties;
+
+    @Bean
+    public JdbcTemplate jdbcTemplate(DataSource dataSource) {
+        return new JdbcTemplate(dataSource);
+    }
 
     @Bean
     @Primary
@@ -57,7 +63,7 @@ public class DataSourceConfig {
             dataSourceMap.put("masterDataSource", createHikariDataSource(masterDataSourceProperties()));
             dataSourceMap.put("slaveDataSource", createHikariDataSource(slaveDataSourceProperties()));
 
-            MasterSlaveRuleConfiguration masterSlaveRuleConfiguration = new MasterSlaveRuleConfiguration(
+            MasterSlaveRuleConfiguration configuration = new MasterSlaveRuleConfiguration(
                     "masterSlaveDataSource",
                     "masterDataSource",
                     Collections.singletonList(
@@ -66,8 +72,9 @@ public class DataSourceConfig {
 
             Properties properties = new Properties();
             properties.setProperty("sql.show", "true");
+            properties.setProperty("sql-show", "true");
 
-            return MasterSlaveDataSourceFactory.createDataSource(dataSourceMap, masterSlaveRuleConfiguration, properties);
+            return MasterSlaveDataSourceFactory.createDataSource(dataSourceMap, configuration, properties);
         } else {
             log.debug("creating datasource...");
             return createHikariDataSource(masterDataSourceProperties());
