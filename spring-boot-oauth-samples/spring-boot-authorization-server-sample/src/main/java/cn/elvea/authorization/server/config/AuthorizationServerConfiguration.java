@@ -10,6 +10,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.keys.KeyManager;
 import org.springframework.security.crypto.keys.StaticKeyGeneratingKeyManager;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.oauth2.core.AuthorizationGrantType;
 import org.springframework.security.oauth2.core.ClientAuthenticationMethod;
 import org.springframework.security.oauth2.server.authorization.client.InMemoryRegisteredClientRepository;
@@ -54,10 +55,9 @@ public class AuthorizationServerConfiguration {
     }
 
     @Bean
-    public UserDetailsService users() {
-        UserDetails user = User.withDefaultPasswordEncoder()
-                .username("admin")
-                .password("admin")
+    public UserDetailsService users(PasswordEncoder encoder) {
+        UserDetails user = User.withUsername("admin")
+                .password(encoder.encode("admin"))
                 .roles("USER")
                 .build();
         return new InMemoryUserDetailsManager(user);
