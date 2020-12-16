@@ -3,20 +3,14 @@ package cn.elvea.authorization.server.config;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
-import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.OAuth2AuthorizationServerConfiguration;
-import org.springframework.security.core.userdetails.User;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.keys.KeyManager;
 import org.springframework.security.crypto.keys.StaticKeyGeneratingKeyManager;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.oauth2.core.AuthorizationGrantType;
 import org.springframework.security.oauth2.core.ClientAuthenticationMethod;
 import org.springframework.security.oauth2.server.authorization.client.InMemoryRegisteredClientRepository;
 import org.springframework.security.oauth2.server.authorization.client.RegisteredClient;
 import org.springframework.security.oauth2.server.authorization.client.RegisteredClientRepository;
-import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 
 import java.util.UUID;
 
@@ -27,7 +21,6 @@ import java.util.UUID;
  * @author elvea
  */
 @Configuration
-@EnableWebSecurity
 @Import(OAuth2AuthorizationServerConfiguration.class)
 public class AuthorizationServerConfiguration {
 
@@ -52,15 +45,6 @@ public class AuthorizationServerConfiguration {
     @Bean
     public KeyManager keyManager() {
         return new StaticKeyGeneratingKeyManager();
-    }
-
-    @Bean
-    public UserDetailsService users(PasswordEncoder encoder) {
-        UserDetails user = User.withUsername("admin")
-                .password(encoder.encode("admin"))
-                .roles("USER")
-                .build();
-        return new InMemoryUserDetailsManager(user);
     }
 
 }
