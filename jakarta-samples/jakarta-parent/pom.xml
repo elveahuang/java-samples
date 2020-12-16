@@ -53,6 +53,8 @@
         <project.encoding>UTF-8</project.encoding>
         <project.build.version>1.0.0</project.build.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <!-- jakarta -->
+        <jakarta-platform.version>9.0.0</jakarta-platform.version>
         <!-- maven -->
         <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
         <maven-war-plugin.version>3.3.1</maven-war-plugin.version>
@@ -62,6 +64,12 @@
 
     <dependencyManagement>
         <dependencies>
+            <dependency>
+                <!-- jakarta -->
+                <groupId>jakarta.platform</groupId>
+                <artifactId>jakarta.jakartaee-api</artifactId>
+                <version>${jakarta-platform.version}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
