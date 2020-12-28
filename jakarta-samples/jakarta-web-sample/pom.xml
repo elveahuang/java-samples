@@ -13,6 +13,7 @@
     <description>Jakarta Web Sample</description>
     <version>1.0.0</version>
     <packaging>war</packaging>
+
     <dependencies>
         <dependency>
             <!-- jakarta -->
