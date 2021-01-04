@@ -15,32 +15,32 @@
     <packaging>war</packaging>
 
     <dependencies>
-        <dependency>
+        <dependency><!-- mvc-api -->
             <groupId>jakarta.mvc</groupId>
             <artifactId>jakarta.mvc-api</artifactId>
-            <version>${jakarta-mvc.version}</version>
+            <version>${jakarta.mvc-api.version}</version>
         </dependency>
-        <dependency>
+        <dependency><!-- cdi-api -->
             <groupId>jakarta.enterprise</groupId>
             <artifactId>jakarta.enterprise.cdi-api</artifactId>
-            <version>3.0.0</version>
+            <version>${jakarta.enterprise.cdi-api.version}</version>
         </dependency>
-        <dependency>
+        <dependency><!-- el-api -->
             <groupId>jakarta.el</groupId>
             <artifactId>jakarta.el-api</artifactId>
-            <version>4.0.0</version>
+            <version>${jakarta.el-api.version}</version>
         </dependency>
-        <dependency>
+        <dependency><!-- krazo -->
             <groupId>org.eclipse.krazo</groupId>
             <artifactId>krazo-core</artifactId>
-            <version>${jakarta-mvc.version}</version>
+            <version>${jakarta.mvc-api.version}</version>
         </dependency>
         <dependency>
             <groupId>org.eclipse.krazo</groupId>
             <artifactId>krazo-jersey</artifactId>
-            <version>${jakarta-mvc.version}</version>
+            <version>${jakarta.mvc-api.version}</version>
         </dependency>
-        <dependency>
+        <dependency><!-- weld -->
             <groupId>org.jboss.weld.servlet</groupId>
             <artifactId>weld-servlet-core</artifactId>
             <version>${weld.version}</version>
@@ -50,7 +50,6 @@
                     <artifactId>jakarta.el-api</artifactId>
                 </exclusion>
             </exclusions>
-            <scope>provided</scope>
         </dependency>
     </dependencies>
 </project>
