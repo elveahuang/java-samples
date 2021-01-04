@@ -10,7 +10,7 @@
         <relativePath>../../spring-project-parent/pom.xml</relativePath>
     </parent>
     <artifactId>spring-boot-web-socket-sample</artifactId>
-    <description>Spring Boot JDBC Sample</description>
+    <description>Spring Boot WebSocket Sample</description>
     <version>1.0.0</version>
     <packaging>jar</packaging>
 
@@ -60,6 +60,10 @@
         <!-- webjars -->
         <dependency>
             <groupId>org.webjars</groupId>
+            <artifactId>webjars-locator-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.webjars</groupId>
             <artifactId>jquery</artifactId>
         </dependency>
         <dependency>
@@ -67,20 +71,8 @@
             <artifactId>popper.js</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.webjars.bower</groupId>
-            <artifactId>sockjs-client</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.webjars.npm</groupId>
-            <artifactId>stomp__stompjs</artifactId>
-        </dependency>
-        <dependency>
             <groupId>org.webjars</groupId>
             <artifactId>bootstrap</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.webjars</groupId>
-            <artifactId>webjars-locator-core</artifactId>
         </dependency>
     </dependencies>
 </project>

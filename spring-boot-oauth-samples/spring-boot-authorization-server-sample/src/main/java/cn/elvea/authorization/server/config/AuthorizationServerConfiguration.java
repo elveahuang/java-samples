@@ -14,9 +14,8 @@ import org.springframework.security.oauth2.server.authorization.client.Registere
 
 import java.util.UUID;
 
-
 /**
- * 认证服务器配置
+ * 认证配置
  *
  * @author elvea
  */

@@ -1,4 +1,4 @@
-package cn.elvea.spring.boot.oauth;
+package cn.elvea.authorization.server;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -20,7 +20,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @ExtendWith(SpringExtension.class)
 @SpringBootTest
 @AutoConfigureMockMvc
-public class SpringAuthorizationServerApplicationTests {
+public class AuthorizationServerApplicationTests {
     @Autowired
     MockMvc mvc;
 

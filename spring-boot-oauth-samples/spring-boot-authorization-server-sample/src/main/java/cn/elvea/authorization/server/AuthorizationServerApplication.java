@@ -9,10 +9,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @author elvea
  */
 @SpringBootApplication
-public class AuthorizationServer {
+public class AuthorizationServerApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(AuthorizationServer.class, args);
+        SpringApplication.run(AuthorizationServerApplication.class, args);
     }
 
 }

@@ -2,31 +2,33 @@
 <html lang="en"
       xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="https://www.thymeleaf.org">
-<head>
-    <th:block th:include="include/commons :: meta"/>
-    <title>Index</title>
-</head>
-<body>
-<div class="container">
-    <div class="row">
-        <div class="col-6 offset-3">
-            Index
-            <br/>
-            With Webapp: <a href="/oauth2/authorization/webapp">click here</a>
-            <br/>
-            With GitHub: <a href="/oauth2/authorization/github">click here</a>
-            <br/>
-            <a href="/logout">Logout</a>
-            <br/>
-            <a href="/home">Home</a>
+    <head>
+        <th:block th:include="include/commons :: meta"/>
+        <title>Index</title>
+    </head>
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="col-6 offset-3">
+                    Index
+                    <br/>
+                    <a href="/authorize?grant_type=authorization_code"
+                       th:href="@{/authorize?grant_type=authorization_code}">Webapp</a>
+                    With Webapp: <a href="http://127.0.0.1:8081/oauth2/authorization/webapp">click here</a>
+                    <br/>
+                    With GitHub: <a href="http://127.0.0.1:8081/oauth2/authorization/github">click here</a>
+                    <br/>
+                    <a href="/logout">Logout</a>
+                    <br/>
+                    <a href="/home">Home</a>
+                </div>
+            </div>
         </div>
-    </div>
-</div>
-<th:block th:include="include/commons :: js"/>
-<script type="text/javascript">
-    $(function () {
-        $.get("/user");
-    })
-</script>
-</body>
+        <th:block th:include="include/commons :: js"/>
+        <script type="text/javascript">
+            $(function() {
+                $.get("/user");
+            })
+        </script>
+    </body>
 </html>

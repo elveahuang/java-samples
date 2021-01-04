@@ -1,16 +1,15 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="https://www.thymeleaf.org">
-<head>
-    <th:block th:include="include/commons :: meta"/>
-    <title>首页</title>
-</head>
-<body>
-<div class="container">
-    <div class="row">
-        <div class="col-6 offset-3">
-            Auth Server
+    <head>
+        <th:block th:include="include/commons :: meta"/>
+        <title>首页</title>
+    </head>
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="col-6 offset-3">Auth Server</div>
+            </div>
         </div>
-    </div>
-</div>
-</body>
+        <th:block th:include="include/commons :: js"/>
+    </body>
 </html>

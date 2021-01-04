@@ -1,4 +1,4 @@
-package cn.elvea.spring.boot.oauth;
+package cn.elvea.authorization.server.oauth;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
