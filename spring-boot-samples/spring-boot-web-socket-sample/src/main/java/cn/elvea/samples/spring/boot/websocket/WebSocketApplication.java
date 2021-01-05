@@ -4,15 +4,15 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
- * SpringBootWebSocketApplication
+ * WebSocketApplication
  *
  * @author elvea
  */
 @SpringBootApplication
-public class SpringBootWebSocketApplication {
+public class WebSocketApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(SpringBootWebSocketApplication.class, args);
+        SpringApplication.run(WebSocketApplication.class, args);
     }
 
 }
