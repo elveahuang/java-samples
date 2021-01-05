@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="off">
+    <Properties>
+        <Property name="Pattern_Layout">%date{yyyy-MM-dd HH:mm:ss.SSS} %level [%thread][%file:%line] - %msg%n</Property>
+        <Property name="Triggering_Policy_Size">100MB</Property>
+        <Property name="IfLastModified">7d</Property>
+        <Property name="Log_Path">logs</Property>
+    </Properties>
+
+    <Appenders>
+        <!-- 控制台输出 -->
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="${Pattern_Layout}"/>
+        </Console>
+
+        <!-- 默认日志文件 -->
+        <RollingRandomAccessFile name="DefaultLogFile"
+                                 fileName="${Log_Path}/log.log"
+                                 filePattern="${Log_Path}/backup/log_%d{yyyy-MM-dd}_%i.zip">
+            <PatternLayout pattern="${Pattern_Layout}"/>
+            <Policies>
+                <TimeBasedTriggeringPolicy/>
+                <SizeBasedTriggeringPolicy size="${Triggering_Policy_Size}"/>
+            </Policies>
+            <DefaultRolloverStrategy>
+                <Delete basePath="${Log_Path}/backup">
+                    <IfFileName glob="log.*.zip"/>
+                    <IfLastModified age="${IfLastModified}"/>
+                </Delete>
+            </DefaultRolloverStrategy>
+        </RollingRandomAccessFile>
+    </Appenders>
+
+    <Loggers>
+        <!-- FrameWorks -->
+        <Logger name="org.hibernate" level="WARN"/>
+        <Logger name="org.apache.ibatis" level="TRACE"/>
+        <Logger name="org.springframework" level="WARN"/>
+        <Logger name="org.springframework.security" level="WARN"/>
+        <Logger name="org.springframework.jdbc.core" level="TRACE"/>
+
+        <!-- Platform -->
+        <Logger name="cn.elvea" level="DEBUG" additivity="false">
+            <AppenderRef ref="DefaultLogFile"/>
+            <AppenderRef ref="Console"/>
+        </Logger>
+
+        <Root level="WARN">
+            <AppenderRef ref="Console"/>
+            <AppenderRef ref="DefaultLogFile"/>
+        </Root>
+    </Loggers>
+</Configuration>

@@ -9,8 +9,8 @@
         <version>1.0.0</version>
         <relativePath>../../spring-project-parent/pom.xml</relativePath>
     </parent>
-    <artifactId>spring-boot-authorization-server-sample</artifactId>
-    <description>Spring Boot Authorization Server Sample</description>
+    <artifactId>spring-boot-legacy-authorization-server-sample</artifactId>
+    <description>Spring Boot Legacy Authorization Server Sample</description>
     <version>1.0.0</version>
     <packaging>jar</packaging>
 

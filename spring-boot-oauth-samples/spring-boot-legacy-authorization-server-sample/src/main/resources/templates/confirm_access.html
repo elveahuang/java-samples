@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <th:block th:include="include/commons :: meta"/>
+    <title>确认页面</title>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-6 offset-3">
+            <form id="confirmationForm" name="confirmationForm"
+                  th:action="@{/oauth/authorize}" method="post">
+                <input name="user_oauth_approval" value="true" type="hidden">
+                <button name="authorize" type="submit">同意</button>
+            </form>
+            <form id="denialForm" name="denialForm"
+                  th:action="@{/oauth/authorize}" method="post">
+                <input name="user_oauth_approval" value="false" type="hidden">
+                <button name="deny" type="submit">拒绝</button>
+            </form>
+        </div>
+    </div>
+</div>
+<th:block th:include="include/commons :: js"/>
+</body>
+</html>

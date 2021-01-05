@@ -95,6 +95,7 @@
         <jodconverter.version>4.3.0</jodconverter.version>
         <poi.version>4.1.2</poi.version>
         <pdfbox.version>2.0.22</pdfbox.version>
+        <keycloak.version>12.0.1</keycloak.version>
         <!-- maven -->
         <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
         <maven-war-plugin.version>3.3.1</maven-war-plugin.version>

@@ -9,6 +9,8 @@
     <packaging>pom</packaging>
     <modules>
         <module>spring-boot-authorization-server-sample</module>
+        <module>spring-boot-legacy-authorization-server-sample</module>
+        <module>spring-boot-keycloak-authorization-server-sample</module>
         <module>spring-boot-resource-server-sample</module>
         <module>spring-boot-client-sample</module>
     </modules>
