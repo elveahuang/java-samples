@@ -17,10 +17,10 @@ import org.springframework.context.annotation.Bean;
  */
 @Slf4j
 @SpringBootApplication
-public class AuthorizationServer {
+public class KeyCloakAuthorizationServer {
 
     public static void main(String[] args) {
-        SpringApplication.run(AuthorizationServer.class, args);
+        SpringApplication.run(KeyCloakAuthorizationServer.class, args);
     }
 
     @Bean
