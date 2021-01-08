@@ -6,11 +6,14 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.oauth2.config.annotation.configurers.ClientDetailsServiceConfigurer;
 import org.springframework.security.oauth2.config.annotation.web.configuration.AuthorizationServerConfigurerAdapter;
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableAuthorizationServer;
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerEndpointsConfigurer;
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerSecurityConfigurer;
+import org.springframework.security.oauth2.provider.approval.ApprovalStore;
+import org.springframework.security.oauth2.provider.approval.InMemoryApprovalStore;
 import org.springframework.security.oauth2.provider.token.DefaultAccessTokenConverter;
 import org.springframework.security.oauth2.provider.token.TokenStore;
 import org.springframework.security.oauth2.provider.token.store.JwtAccessTokenConverter;
@@ -25,17 +28,21 @@ import java.security.KeyPair;
  */
 @Configuration
 @EnableAuthorizationServer
-public class AuthorizationServerConfiguration extends AuthorizationServerConfigurerAdapter {
+public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdapter {
 
     private final AuthenticationManager authenticationManager;
 
     private final KeyPair keyPair;
 
+    private final PasswordEncoder passwordEncoder;
+
     @Autowired
-    public AuthorizationServerConfiguration(
+    public AuthorizationServerConfig(
             AuthenticationConfiguration authenticationConfiguration,
-            KeyPair keyPair
+            KeyPair keyPair,
+            PasswordEncoder passwordEncoder
     ) throws Exception {
+        this.passwordEncoder = passwordEncoder;
         this.keyPair = keyPair;
         this.authenticationManager = authenticationConfiguration.getAuthenticationManager();
     }
@@ -55,10 +62,10 @@ public class AuthorizationServerConfiguration extends AuthorizationServerConfigu
     public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
         clients.inMemory()
                 .withClient("webapp")
-                .secret("webapp")
-                .authorizedGrantTypes("password", "authorization_code", "refresh_token", "implicit")
+                .secret(this.passwordEncoder.encode("webapp"))
+                .authorizedGrantTypes("password", "client_credentials", "authorization_code", "refresh_token", "implicit")
                 .authorities("ROLE_USER")
-                .scopes("read", "write", "trust")
+                .scopes("message:read", "message:write")
                 .resourceIds("webapp")
                 .accessTokenValiditySeconds(60);
     }
@@ -73,6 +80,11 @@ public class AuthorizationServerConfiguration extends AuthorizationServerConfigu
     @Bean
     public TokenStore tokenStore() {
         return new JwtTokenStore(accessTokenConverter());
+    }
+
+    @Bean
+    public ApprovalStore approvalStore() {
+        return new InMemoryApprovalStore();
     }
 
     @Bean

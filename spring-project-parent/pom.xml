@@ -105,8 +105,7 @@
         <!-- webjars -->
         <webjars-jquery.version>3.5.1</webjars-jquery.version>
         <webjars-popper-js.version>2.5.4</webjars-popper-js.version>
-        <webjars-bootstrap.version>4.5.3</webjars-bootstrap.version>
-        <webjars-locator-core.version>0.46</webjars-locator-core.version>
+        <webjars-bootstrap.version>5.0.0-beta1</webjars-bootstrap.version>
     </properties>
 
     <dependencyManagement>
@@ -138,6 +137,11 @@
                 <version>${spring-boot-admin.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
+            </dependency>
+            <dependency><!-- spring-security-oauth -->
+                <groupId>org.springframework.security.oauth.boot</groupId>
+                <artifactId>spring-security-oauth2-autoconfigure</artifactId>
+                <version>${spring-security-oauth.version}</version>
             </dependency>
             <!-- database -->
             <dependency>
@@ -192,11 +196,6 @@
                 <groupId>org.webjars</groupId>
                 <artifactId>bootstrap</artifactId>
                 <version>${webjars-bootstrap.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.webjars</groupId>
-                <artifactId>webjars-locator-core</artifactId>
-                <version>${webjars-locator-core.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
