@@ -11,20 +11,29 @@
             <div class="row">
                 <div class="col-6 offset-3">
                     <h3>Spring Security OAuth</h3>
-                    <a href="/login/oauth2/authorization/webapp"
-                       th:href="@{/login/oauth2/authorization/authorization-server}">Webapp OAuth</a>
-                    <br/>
-                    <a href="http://127.0.0.1:8081/oauth/authorize?grant_type=authorization_code">Webapp</a>
-                    <a href="http://127.0.0.1:8081/authorize?grant_type=authorization_code">Webapp</a>
-                    With Webapp: <a href="http://127.0.0.1:8081/oauth2/authorization/webapp">click here</a>
-                    With GitHub: <a href="http://127.0.0.1:8081/oauth2/authorization/github">click here</a>
+                    <a th:href="@{/login/oauth/authorization/authorization-server}">Legacy Authorization Server</a>
+                    <hr/>
                     <h3>Spring Authorization Server</h3>
-                    <a href="/logout">Logout</a>
-                    <br/
-                    <a href="/home">Home</a>
+                    <a th:href="@{/login/oauth/authorization/authorization-server}">Spring Authorization Server</a>
+                    <hr/>
+                    <h3>Github</h3>
+                    <a th:href="@{/login/oauth/authorization/github}">Custom Github</a>
+                    <br/>
+                    <a th:href="@{/oauth/authorization/github}">Github</a>
+                    <hr/>
+                    <a th:href="@{/home}">Home</a>
+                    <hr/>
+                    <a th:href="@{/logout}">Logout</a>
+                    <hr/>
+                    <button class="btn btn-primary" onclick="getUser()">User</button>
                 </div>
             </div>
         </div>
         <th:block th:include="include/commons :: js"/>
+        <script>
+            function getUser() {
+                $.get("/user");
+            }
+        </script>
     </body>
 </html>

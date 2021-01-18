@@ -64,7 +64,7 @@ public class SecurityCommonConfig {
     }
 
     @Bean
-    public UserDetailsService users(PasswordEncoder encoder) {
+    public UserDetailsService userDetailsService(PasswordEncoder encoder) {
         UserDetails user = User.withUsername("admin")
                 .password(encoder.encode("admin"))
                 .roles("USER")

@@ -24,11 +24,21 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-                .anyRequest().permitAll()
+                .antMatchers("/favicon.ico").permitAll()
+                .antMatchers("/").permitAll()
+                .antMatchers("/oauth2/**").permitAll()
+                .antMatchers("/oauth/callback/*").permitAll()
+                .antMatchers("/login/oauth").permitAll()
+                .antMatchers("/login/oauth/**").permitAll()
+                .anyRequest().authenticated()
                 .and()
-                .logout()
-                .disable()
-                .oauth2Client();
+                .logout().logoutSuccessUrl("/")
+                .and()
+                .oauth2Login(auth -> auth
+                        .loginPage("/login/oauth")
+                        .authorizationEndpoint(authorization -> authorization.baseUri("/login/oauth/authorization"))
+                        .redirectionEndpoint(redirection -> redirection.baseUri("/login/oauth/callback/*"))
+                );
     }
 
 }

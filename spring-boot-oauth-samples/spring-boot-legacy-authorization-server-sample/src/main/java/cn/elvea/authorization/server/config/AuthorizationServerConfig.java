@@ -65,15 +65,16 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
                 .secret(this.passwordEncoder.encode("webapp"))
                 .authorizedGrantTypes("password", "client_credentials", "authorization_code", "refresh_token", "implicit")
                 .authorities("ROLE_USER")
-                .scopes("message:read", "message:write")
-                .resourceIds("webapp")
+                .scopes("message:read", "message:write", "user")
+                .resourceIds("webapp", "authorization-server")
+                .redirectUris("http://127.0.0.1:8080/authorized", "http://127.0.0.1:8080/login/oauth/callback/authorization-server")
                 .accessTokenValiditySeconds(60);
     }
 
     @Override
     public void configure(AuthorizationServerSecurityConfigurer security) {
         security.tokenKeyAccess("permitAll()")
-                .checkTokenAccess("isAuthenticated()")
+                .checkTokenAccess("permitAll()")
                 .allowFormAuthenticationForClients();
     }
 

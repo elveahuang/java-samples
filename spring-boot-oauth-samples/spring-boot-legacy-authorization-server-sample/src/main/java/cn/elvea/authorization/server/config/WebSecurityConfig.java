@@ -9,7 +9,6 @@ import org.springframework.security.config.annotation.method.configuration.Enabl
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.oauth2.jwt.JwtDecoder;
@@ -21,7 +20,7 @@ import org.springframework.security.oauth2.jwt.JwtDecoder;
  */
 @Configuration
 @EnableWebSecurity
-@EnableGlobalMethodSecurity(prePostEnabled = true)
+@EnableGlobalMethodSecurity(prePostEnabled = true, jsr250Enabled = true, securedEnabled = true)
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     private final UserDetailsService userDetailsService;
@@ -53,16 +52,20 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf().disable()
+                .httpBasic()
+                .and()
                 .authorizeRequests()
                 .mvcMatchers("/").permitAll()
+                .mvcMatchers("/favicon.ico").permitAll()
                 .mvcMatchers("/.well-known/jwks.json").permitAll()
                 .antMatchers("/favicon.ico", "/static/**", "/webjars/**").permitAll()
-                .antMatchers("/actuator/**").permitAll()
-                .antMatchers("/oauth/**").permitAll()
-                .antMatchers("/api/version").hasAuthority("SCOPE_webapp")
+                .antMatchers("/login", "/user", "/oauth/**").permitAll()
+                .antMatchers("/oauth/check_token").permitAll()
                 .anyRequest().authenticated()
                 .and()
-                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+                .formLogin().permitAll()
+                .and()
+                .oauth2ResourceServer(oauth -> oauth.jwt(jwt -> jwt.decoder(jwtDecoder)));
     }
 
 }

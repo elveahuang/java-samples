@@ -54,22 +54,22 @@
         <project.build.version>1.0.0</project.build.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <!-- spring -->
-        <spring-boot.version>2.4.1</spring-boot.version>
+        <spring-boot.version>2.4.2</spring-boot.version>
         <spring-boot-admin.version>2.3.1</spring-boot-admin.version>
         <spring-authorization-server.version>0.0.3</spring-authorization-server.version>
         <spring-security-oauth.version>2.4.0</spring-security-oauth.version>
         <spring-cloud.version>2020.0.0</spring-cloud.version>
-        <spring-cloud-alibaba.version>2.2.3.RELEASE</spring-cloud-alibaba.version>
+        <spring-cloud-alibaba.version>2.2.4.RELEASE</spring-cloud-alibaba.version>
         <!-- database -->
         <druid.version>1.2.4</druid.version>
-        <redisson.version>3.14.0</redisson.version>
-        <jsqlparser.version>3.2</jsqlparser.version>
+        <redisson.version>3.14.1</redisson.version>
+        <jsqlparser.version>4.0</jsqlparser.version>
         <sharding-sphere.version>4.1.1</sharding-sphere.version>
         <!-- mybatis -->
         <mybatis.version>3.5.6</mybatis.version>
         <mybatis-spring.version>2.0.5</mybatis-spring.version>
         <mybatis-spring-boot.version>2.1.3</mybatis-spring-boot.version>
-        <mybatis-plus.version>3.4.1</mybatis-plus.version>
+        <mybatis-plus.version>3.4.2</mybatis-plus.version>
         <!-- commons -->
         <commons-io.version>2.8.0</commons-io.version>
         <commons-codec.version>1.15</commons-codec.version>
@@ -89,7 +89,7 @@
         <dom4j-2.version>2.1.3</dom4j-2.version>
         <ognl.version>3.2.18</ognl.version>
         <guava.version>30.1-jre</guava.version>
-        <okio.version>2.9.0</okio.version>
+        <okio.version>2.10.0</okio.version>
         <flowable.version>6.6.0</flowable.version>
         <openoffice.version>4.1.2</openoffice.version>
         <libreoffice.version>7.0.4</libreoffice.version>
