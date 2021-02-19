@@ -54,15 +54,15 @@
         <project.build.version>1.0.0</project.build.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <!-- spring -->
-        <spring-boot.version>2.4.2</spring-boot.version>
+        <spring-boot.version>2.4.3</spring-boot.version>
         <spring-boot-admin.version>2.3.1</spring-boot-admin.version>
-        <spring-authorization-server.version>0.0.3</spring-authorization-server.version>
-        <spring-security-oauth.version>2.4.0</spring-security-oauth.version>
-        <spring-cloud.version>2020.0.0</spring-cloud.version>
-        <spring-cloud-alibaba.version>2.2.4.RELEASE</spring-cloud-alibaba.version>
+        <spring-authorization-server.version>0.1.0</spring-authorization-server.version>
+        <spring-security-oauth.version>2.4.2</spring-security-oauth.version>
+        <spring-cloud.version>2020.0.1</spring-cloud.version>
+        <spring-cloud-alibaba.version>2.2.5.RELEASE</spring-cloud-alibaba.version>
         <!-- database -->
-        <druid.version>1.2.4</druid.version>
-        <redisson.version>3.14.1</redisson.version>
+        <druid.version>1.2.5</druid.version>
+        <redisson.version>3.15.0</redisson.version>
         <jsqlparser.version>4.0</jsqlparser.version>
         <sharding-sphere.version>4.1.1</sharding-sphere.version>
         <!-- mybatis -->
@@ -82,7 +82,7 @@
         <commons-email.version>1.5</commons-email.version>
         <commons-lang-3.version>3.11</commons-lang-3.version>
         <commons-text.version>1.9</commons-text.version>
-        <commons-pool-2.version>2.7.0</commons-pool-2.version>
+        <commons-pool-2.version>2.9.0</commons-pool-2.version>
         <!-- 3rd party -->
         <asm.version>9.0</asm.version>
         <javassist.version>3.27.0-GA</javassist.version>
@@ -92,11 +92,11 @@
         <okio.version>2.10.0</okio.version>
         <flowable.version>6.6.0</flowable.version>
         <openoffice.version>4.1.2</openoffice.version>
-        <libreoffice.version>7.0.4</libreoffice.version>
-        <jodconverter.version>4.3.0</jodconverter.version>
+        <libreoffice.version>7.1.0</libreoffice.version>
+        <jodconverter.version>4.4.2</jodconverter.version>
         <poi.version>4.1.2</poi.version>
         <pdfbox.version>2.0.22</pdfbox.version>
-        <keycloak.version>12.0.1</keycloak.version>
+        <keycloak.version>12.0.3</keycloak.version>
         <!-- maven -->
         <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
         <maven-war-plugin.version>3.3.1</maven-war-plugin.version>

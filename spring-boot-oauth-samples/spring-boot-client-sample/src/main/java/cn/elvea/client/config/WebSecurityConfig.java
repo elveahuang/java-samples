@@ -1,44 +1,39 @@
 package cn.elvea.client.config;
 
-import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Bean;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.config.annotation.web.configuration.WebSecurityCustomizer;
+import org.springframework.security.web.SecurityFilterChain;
+
+import static org.springframework.security.config.Customizer.withDefaults;
 
 /**
  * SecurityConfig
  *
  * @author elvea
  */
-@Configuration
 @EnableWebSecurity
-public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
+public class WebSecurityConfig {
 
-    @Override
-    public void configure(WebSecurity web) {
-        web.ignoring().antMatchers("/webjars/**");
+    @Bean
+    WebSecurityCustomizer webSecurityCustomizer() {
+        return (web) -> web.ignoring().antMatchers("/webjars/**");
     }
 
-    @Override
-    protected void configure(HttpSecurity http) throws Exception {
-        http
-                .authorizeRequests()
-                .antMatchers("/favicon.ico").permitAll()
-                .antMatchers("/").permitAll()
-                .antMatchers("/oauth2/**").permitAll()
-                .antMatchers("/oauth/callback/*").permitAll()
-                .antMatchers("/login/oauth").permitAll()
-                .antMatchers("/login/oauth/**").permitAll()
-                .anyRequest().authenticated()
-                .and()
-                .logout().logoutSuccessUrl("/")
-                .and()
-                .oauth2Login(auth -> auth
+    @Bean
+    SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+        http.authorizeRequests(authorizeRequests ->
+                authorizeRequests
+                        .antMatchers("/", "/login/oauth", "/login/oauth/**").permitAll()
+                        .anyRequest().authenticated()
+        ).oauth2Login(auth ->
+                auth
                         .loginPage("/login/oauth")
                         .authorizationEndpoint(authorization -> authorization.baseUri("/login/oauth/authorization"))
                         .redirectionEndpoint(redirection -> redirection.baseUri("/login/oauth/callback/*"))
-                );
+        ).oauth2Client(withDefaults());
+        return http.build();
     }
 
 }
