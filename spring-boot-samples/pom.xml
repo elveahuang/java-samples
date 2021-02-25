@@ -9,6 +9,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>spring-boot-data-sample</module>
+        <module>spring-boot-jsp-sample</module>
         <module>spring-boot-web-socket-sample</module>
     </modules>
 </project>
