@@ -15,22 +15,12 @@
     <packaging>war</packaging>
 
     <dependencies>
-        <dependency><!-- mvc-api -->
-            <groupId>jakarta.mvc</groupId>
-            <artifactId>jakarta.mvc-api</artifactId>
-            <version>${jakarta.mvc-api.version}</version>
+        <dependency><!-- jakarta -->
+            <groupId>jakarta.platform</groupId>
+            <artifactId>jakarta.jakartaee-api</artifactId>
+            <scope>provided</scope>
         </dependency>
-        <dependency><!-- cdi-api -->
-            <groupId>jakarta.enterprise</groupId>
-            <artifactId>jakarta.enterprise.cdi-api</artifactId>
-            <version>${jakarta.enterprise.cdi-api.version}</version>
-        </dependency>
-        <dependency><!-- el-api -->
-            <groupId>jakarta.el</groupId>
-            <artifactId>jakarta.el-api</artifactId>
-            <version>${jakarta.el-api.version}</version>
-        </dependency>
-        <dependency><!-- krazo -->
+        <dependency><!-- mvc -->
             <groupId>org.eclipse.krazo</groupId>
             <artifactId>krazo-core</artifactId>
             <version>${jakarta.mvc-api.version}</version>
@@ -44,12 +34,6 @@
             <groupId>org.jboss.weld.servlet</groupId>
             <artifactId>weld-servlet-core</artifactId>
             <version>${weld.version}</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>jakarta.el</groupId>
-                    <artifactId>jakarta.el-api</artifactId>
-                </exclusion>
-            </exclusions>
         </dependency>
     </dependencies>
 </project>

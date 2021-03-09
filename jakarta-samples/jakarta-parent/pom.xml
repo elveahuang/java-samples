@@ -57,23 +57,43 @@
         <jakarta-platform.version>9.0.0</jakarta-platform.version>
         <jakarta.mvc-api.version>2.0.0</jakarta.mvc-api.version>
         <jakarta.el-api.version>4.0.0</jakarta.el-api.version>
+        <jakarta.el.version>4.0.1</jakarta.el.version>
         <jakarta.enterprise.cdi-api.version>3.0.0</jakarta.enterprise.cdi-api.version>
         <weld.version>4.0.0.Final</weld.version>
+        <jetty.version>11.0.1</jetty.version>
         <!-- maven -->
         <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
         <maven-war-plugin.version>3.3.1</maven-war-plugin.version>
         <wildfly-maven-plugin.version>2.0.2.Final</wildfly-maven-plugin.version>
-        <jetty-maven-plugin.version>11.0.1</jetty-maven-plugin.version>
+        <jetty-maven-plugin.version>${jetty.version}</jetty-maven-plugin.version>
         <lombok-maven-plugin.version>1.18.18.0</lombok-maven-plugin.version>
+        <cargo-maven-plugin.version>1.8.5</cargo-maven-plugin.version>
     </properties>
 
     <dependencyManagement>
         <dependencies>
+            <!-- jakarta -->
             <dependency>
-                <!-- jakarta -->
+                <groupId>jakarta.platform</groupId>
+                <artifactId>jakarta.jakartaee-bom</artifactId>
+                <version>${jakarta-platform.version}</version>
+                <type>pom</type>
+            </dependency>
+            <dependency>
                 <groupId>jakarta.platform</groupId>
                 <artifactId>jakarta.jakartaee-api</artifactId>
                 <version>${jakarta-platform.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>jakarta.platform</groupId>
+                <artifactId>jakarta.jakartaee-web-api</artifactId>
+                <version>${jakarta-platform.version}</version>
+            </dependency>
+            <!-- jakarta impl -->
+            <dependency><!-- el-impl -->
+                <groupId>org.glassfish</groupId>
+                <artifactId>jakarta.el</artifactId>
+                <version>${jakarta.el.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
@@ -109,13 +129,21 @@
                 <version>${lombok-maven-plugin.version}</version>
             </plugin>
 
-            <!-- wildfly-maven-plugin -->
             <plugin>
-                <groupId>org.wildfly.plugins</groupId>
-                <artifactId>wildfly-maven-plugin</artifactId>
-                <version>${wildfly-maven-plugin.version}</version>
+                <groupId>org.codehaus.cargo</groupId>
+                <artifactId>cargo-maven2-plugin</artifactId>
+                <version>${cargo-maven-plugin.version}</version>
                 <configuration>
-                    <version></version>
+                    <container>
+                        <containerId>glassfish6x</containerId>
+                        <zipUrlInstaller>
+                            <url>https://download.eclipse.org/ee4j/glassfish/glassfish-6.0.0.zip</url>
+                            <downloadDir>${project.build.directory}/../../installers</downloadDir>
+                        </zipUrlInstaller>
+                    </container>
+                    <configuration>
+                        <home>${project.build.directory}/glassfish-home</home>
+                    </configuration>
                 </configuration>
             </plugin>
 
@@ -125,24 +153,13 @@
                 <artifactId>jetty-maven-plugin</artifactId>
                 <version>${jetty-maven-plugin.version}</version>
                 <configuration>
-                    <contextXml>src/main/webapp/WEB-INF/jetty-context.xml</contextXml>
                     <webApp>
                         <contextPath>/</contextPath>
                         <jettyEnvXml>src/main/webapp/WEB-INF/jetty-env.xml</jettyEnvXml>
                     </webApp>
+                    <contextXml>src/main/webapp/WEB-INF/jetty-context.xml</contextXml>
                 </configuration>
                 <dependencies>
-                    <dependency>
-                        <groupId>jakarta.enterprise</groupId>
-                        <artifactId>jakarta.enterprise.cdi-api</artifactId>
-                        <version>${jakarta.enterprise.cdi-api.version}</version>
-                    </dependency>
-                    <dependency>
-                        <groupId>org.jboss.weld.servlet</groupId>
-                        <artifactId>weld-servlet-core</artifactId>
-                        <version>${weld.version}</version>
-                        <scope>runtime</scope>
-                    </dependency>
                 </dependencies>
             </plugin>
         </plugins>

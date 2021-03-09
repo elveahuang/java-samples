@@ -15,11 +15,16 @@
     <packaging>war</packaging>
 
     <dependencies>
-        <dependency>
-            <!-- jakarta -->
+        <dependency><!-- jakarta -->
             <groupId>jakarta.platform</groupId>
             <artifactId>jakarta.jakartaee-api</artifactId>
             <scope>provided</scope>
+        </dependency>
+        <dependency><!-- weld -->
+            <groupId>org.jboss.weld.servlet</groupId>
+            <artifactId>weld-servlet-core</artifactId>
+            <version>${weld.version}</version>
+            <scope>runtime</scope>
         </dependency>
     </dependencies>
 </project>
