@@ -49,7 +49,7 @@
     <properties>
         <!-- project -->
         <project.source>11</project.source>
-        <project.target>11</project.target>
+        <project.target>8</project.target>
         <project.encoding>UTF-8</project.encoding>
         <project.build.version>1.0.0</project.build.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -60,14 +60,17 @@
         <jakarta.el.version>4.0.1</jakarta.el.version>
         <jakarta.enterprise.cdi-api.version>3.0.0</jakarta.enterprise.cdi-api.version>
         <weld.version>4.0.0.Final</weld.version>
+        <!-- server -->
         <jetty.version>11.0.1</jetty.version>
+        <tomcat.version>10.0.4</tomcat.version>
+        <glassfish.version>6.0.0</glassfish.version>
         <!-- maven -->
+        <cargo.version>1.9.2</cargo.version>
         <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
         <maven-war-plugin.version>3.3.1</maven-war-plugin.version>
-        <wildfly-maven-plugin.version>2.0.2.Final</wildfly-maven-plugin.version>
-        <jetty-maven-plugin.version>${jetty.version}</jetty-maven-plugin.version>
         <lombok-maven-plugin.version>1.18.18.0</lombok-maven-plugin.version>
-        <cargo-maven-plugin.version>1.8.5</cargo-maven-plugin.version>
+        <jetty-maven-plugin.version>${jetty.version}</jetty-maven-plugin.version>
+        <cargo-maven-plugin.version>1.9.0</cargo-maven-plugin.version>
     </properties>
 
     <dependencyManagement>
@@ -131,18 +134,23 @@
 
             <plugin>
                 <groupId>org.codehaus.cargo</groupId>
-                <artifactId>cargo-maven2-plugin</artifactId>
+                <artifactId>cargo-maven3-plugin</artifactId>
                 <version>${cargo-maven-plugin.version}</version>
                 <configuration>
                     <container>
                         <containerId>glassfish6x</containerId>
-                        <zipUrlInstaller>
-                            <url>https://download.eclipse.org/ee4j/glassfish/glassfish-6.0.0.zip</url>
-                            <downloadDir>${project.build.directory}/../../installers</downloadDir>
-                        </zipUrlInstaller>
+                        <artifactInstaller>
+                            <groupId>org.glassfish.main.distributions</groupId>
+                            <artifactId>glassfish</artifactId>
+                            <version>${glassfish.version}</version>
+                        </artifactInstaller>
                     </container>
                     <configuration>
-                        <home>${project.build.directory}/glassfish-home</home>
+                        <!--                        <home>${project.build.directory}/glassfish-home</home>-->
+                        <properties>
+                            <cargo.servlet.port>8080</cargo.servlet.port>
+                            <cargo.glassfish.admin.port>4848</cargo.glassfish.admin.port>
+                        </properties>
                     </configuration>
                 </configuration>
             </plugin>
