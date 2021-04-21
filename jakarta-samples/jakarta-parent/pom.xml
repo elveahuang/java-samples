@@ -56,31 +56,36 @@
         <!-- jakarta -->
         <jakarta-platform.version>9.0.0</jakarta-platform.version>
         <jakarta.mvc-api.version>2.0.0</jakarta.mvc-api.version>
+
+        <jakarta.enterprise.cdi-api.version>3.0.0</jakarta.enterprise.cdi-api.version>
+        <jersey.version>3.0.1</jersey.version>
+        <weld.version>4.0.1.SP1</weld.version>
+        <jakarta.servlet.jsp.jstl.version>2.0.0</jakarta.servlet.jsp.jstl.version>
         <jakarta.el-api.version>4.0.0</jakarta.el-api.version>
         <jakarta.el.version>4.0.1</jakarta.el.version>
-        <jakarta.enterprise.cdi-api.version>3.0.0</jakarta.enterprise.cdi-api.version>
-        <weld.version>4.0.1.SP1</weld.version>
+        <jakarta.json>2.0.0</jakarta.json>
+        <!-- 3rd party -->
+        <junit-jupiter.version>5.7.1</junit-jupiter.version>
         <!-- server -->
         <jetty.version>11.0.2</jetty.version>
         <tomcat.version>10.0.5</tomcat.version>
         <glassfish.version>6.0.0</glassfish.version>
         <!-- maven -->
-        <cargo.version>1.9.2</cargo.version>
         <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
         <maven-war-plugin.version>3.3.1</maven-war-plugin.version>
         <lombok-maven-plugin.version>1.18.20.0</lombok-maven-plugin.version>
         <jetty-maven-plugin.version>${jetty.version}</jetty-maven-plugin.version>
-        <cargo-maven-plugin.version>1.9.0</cargo-maven-plugin.version>
+        <cargo-maven-plugin>1.9.3</cargo-maven-plugin>
     </properties>
 
     <dependencyManagement>
         <dependencies>
-            <!-- jakarta -->
-            <dependency>
+            <dependency><!-- jakarta -->
                 <groupId>jakarta.platform</groupId>
                 <artifactId>jakarta.jakartaee-bom</artifactId>
                 <version>${jakarta-platform.version}</version>
                 <type>pom</type>
+                <scope>import</scope>
             </dependency>
             <dependency>
                 <groupId>jakarta.platform</groupId>
@@ -92,11 +97,19 @@
                 <artifactId>jakarta.jakartaee-web-api</artifactId>
                 <version>${jakarta-platform.version}</version>
             </dependency>
-            <!-- jakarta impl -->
-            <dependency><!-- el-impl -->
-                <groupId>org.glassfish</groupId>
-                <artifactId>jakarta.el</artifactId>
-                <version>${jakarta.el.version}</version>
+            <dependency><!-- jersey -->
+                <groupId>org.glassfish.jersey</groupId>
+                <artifactId>jersey-bom</artifactId>
+                <version>${jersey.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency><!-- junit -->
+                <groupId>org.junit</groupId>
+                <artifactId>junit-bom</artifactId>
+                <version>${junit-jupiter.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
             </dependency>
         </dependencies>
     </dependencyManagement>
@@ -132,44 +145,93 @@
                 <version>${lombok-maven-plugin.version}</version>
             </plugin>
 
-            <plugin>
-                <groupId>org.codehaus.cargo</groupId>
-                <artifactId>cargo-maven3-plugin</artifactId>
-                <version>${cargo-maven-plugin.version}</version>
-                <configuration>
-                    <container>
-                        <containerId>glassfish6x</containerId>
-                        <artifactInstaller>
-                            <groupId>org.glassfish.main.distributions</groupId>
-                            <artifactId>glassfish</artifactId>
-                            <version>${glassfish.version}</version>
-                        </artifactInstaller>
-                    </container>
-                    <configuration>
-                        <!--                        <home>${project.build.directory}/glassfish-home</home>-->
-                        <properties>
-                            <cargo.servlet.port>8080</cargo.servlet.port>
-                            <cargo.glassfish.admin.port>4848</cargo.glassfish.admin.port>
-                        </properties>
-                    </configuration>
-                </configuration>
-            </plugin>
-
             <!-- jetty-maven-plugin -->
             <plugin>
                 <groupId>org.eclipse.jetty</groupId>
                 <artifactId>jetty-maven-plugin</artifactId>
                 <version>${jetty-maven-plugin.version}</version>
-                <configuration>
-                    <webApp>
-                        <contextPath>/</contextPath>
-                        <jettyEnvXml>src/main/webapp/WEB-INF/jetty-env.xml</jettyEnvXml>
-                    </webApp>
-                    <contextXml>src/main/webapp/WEB-INF/jetty-context.xml</contextXml>
-                </configuration>
-                <dependencies>
-                </dependencies>
+            </plugin>
+
+            <!-- cargo-maven3-plugin -->
+            <plugin>
+                <groupId>org.codehaus.cargo</groupId>
+                <artifactId>cargo-maven3-plugin</artifactId>
+                <version>${cargo-maven-plugin}</version>
             </plugin>
         </plugins>
     </build>
+
+    <profiles>
+        <profile>
+            <id>tomcat</id>
+
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.codehaus.cargo</groupId>
+                        <artifactId>cargo-maven3-plugin</artifactId>
+                        <configuration>
+                            <container>
+                                <containerId>tomcat10x</containerId>
+                                <artifactInstaller>
+                                    <groupId>org.apache.tomcat</groupId>
+                                    <artifactId>tomcat</artifactId>
+                                    <version>${tomcat.version}</version>
+                                </artifactInstaller>
+                            </container>
+                            <configuration>
+                                <properties>
+                                    <cargo.logging>low</cargo.logging>
+                                </properties>
+                            </configuration>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+
+        <profile>
+            <id>jetty</id>
+
+            <build>
+                <plugins>
+                    <!-- jetty-maven-plugin -->
+                    <plugin>
+                        <groupId>org.eclipse.jetty</groupId>
+                        <artifactId>jetty-maven-plugin</artifactId>
+                        <configuration>
+                            <webApp>
+                                <contextPath>/</contextPath>
+                                <jettyEnvXml>src/main/webapp/WEB-INF/jetty-env.xml</jettyEnvXml>
+                            </webApp>
+                            <contextXml>src/main/webapp/WEB-INF/jetty-context.xml</contextXml>
+                            <modules>jdni,jsp,servlet,glasssfis-jstl,websocket-jakarta,cdi-decorate</modules>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+
+        <profile>
+            <id>jetty-external</id>
+
+            <build>
+                <plugins>
+                    <!-- jetty-maven-plugin -->
+                    <plugin>
+                        <groupId>org.eclipse.jetty</groupId>
+                        <artifactId>jetty-maven-plugin</artifactId>
+                        <configuration>
+                            <deployMode>EXTERNAL</deployMode>
+                            <webApp>
+                                <contextPath>/</contextPath>
+                            </webApp>
+                            <jettyHome>D:\Tools\jetty</jettyHome>
+                            <modules>jdni,jsp,servlet,glassfish-jstl,websocket-jakarta,cdi-decorate</modules>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
 </project>
