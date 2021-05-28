@@ -4,13 +4,13 @@ import jakarta.ws.rs.ApplicationPath;
 import jakarta.ws.rs.core.Application;
 
 /**
- * Config
+ * WebApplication
  *
  * @author elvea
  */
 @ApplicationPath("mvc")
-public class Config extends Application {
-    public Config() {
+public class WebApplication extends Application {
+    public WebApplication() {
         System.out.println("Config...");
     }
 }

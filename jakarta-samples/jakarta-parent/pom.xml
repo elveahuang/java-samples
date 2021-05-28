@@ -56,26 +56,27 @@
         <!-- jakarta -->
         <jakarta-platform.version>9.0.0</jakarta-platform.version>
         <jakarta.mvc-api.version>2.0.0</jakarta.mvc-api.version>
-
+        <jakarta.mvc.version>2.0.1</jakarta.mvc.version>
         <jakarta.enterprise.cdi-api.version>3.0.0</jakarta.enterprise.cdi-api.version>
         <jersey.version>3.0.1</jersey.version>
         <weld.version>4.0.1.SP1</weld.version>
+        <jakarta.servlet-api.version>5.0.0</jakarta.servlet-api.version>
         <jakarta.servlet.jsp.jstl.version>2.0.0</jakarta.servlet.jsp.jstl.version>
         <jakarta.el-api.version>4.0.0</jakarta.el-api.version>
         <jakarta.el.version>4.0.1</jakarta.el.version>
-        <jakarta.json>2.0.0</jakarta.json>
+        <jakarta.json.version>2.0.0</jakarta.json.version>
         <!-- 3rd party -->
-        <junit-jupiter.version>5.7.1</junit-jupiter.version>
+        <junit-jupiter.version>5.7.2</junit-jupiter.version>
         <!-- server -->
-        <jetty.version>11.0.2</jetty.version>
-        <tomcat.version>10.0.5</tomcat.version>
+        <jetty.version>11.0.3</jetty.version>
+        <tomcat.version>10.0.6</tomcat.version>
         <glassfish.version>6.0.0</glassfish.version>
         <!-- maven -->
         <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
         <maven-war-plugin.version>3.3.1</maven-war-plugin.version>
         <lombok-maven-plugin.version>1.18.20.0</lombok-maven-plugin.version>
         <jetty-maven-plugin.version>${jetty.version}</jetty-maven-plugin.version>
-        <cargo-maven-plugin>1.9.3</cargo-maven-plugin>
+        <cargo-maven-plugin>1.9.4</cargo-maven-plugin>
     </properties>
 
     <dependencyManagement>
@@ -173,11 +174,7 @@
                         <configuration>
                             <container>
                                 <containerId>tomcat10x</containerId>
-                                <artifactInstaller>
-                                    <groupId>org.apache.tomcat</groupId>
-                                    <artifactId>tomcat</artifactId>
-                                    <version>${tomcat.version}</version>
-                                </artifactInstaller>
+                                <type>embedded</type>
                             </container>
                             <configuration>
                                 <properties>
@@ -195,6 +192,17 @@
 
             <build>
                 <plugins>
+                    <plugin>
+                        <groupId>org.codehaus.cargo</groupId>
+                        <artifactId>cargo-maven3-plugin</artifactId>
+                        <configuration>
+                            <container>
+                                <containerId>jetty11x</containerId>
+                                <type>embedded</type>
+                            </container>
+                        </configuration>
+                    </plugin>
+
                     <!-- jetty-maven-plugin -->
                     <plugin>
                         <groupId>org.eclipse.jetty</groupId>
@@ -213,21 +221,35 @@
         </profile>
 
         <profile>
-            <id>jetty-external</id>
+            <id>wildfly</id>
 
             <build>
                 <plugins>
-                    <!-- jetty-maven-plugin -->
                     <plugin>
-                        <groupId>org.eclipse.jetty</groupId>
-                        <artifactId>jetty-maven-plugin</artifactId>
+                        <groupId>org.codehaus.cargo</groupId>
+                        <artifactId>cargo-maven3-plugin</artifactId>
                         <configuration>
-                            <deployMode>EXTERNAL</deployMode>
-                            <webApp>
-                                <contextPath>/</contextPath>
-                            </webApp>
-                            <jettyHome>D:\Tools\jetty</jettyHome>
-                            <modules>jdni,jsp,servlet,glassfish-jstl,websocket-jakarta,cdi-decorate</modules>
+                            <container>
+                                <containerId>wildfly23x</containerId>
+                            </container>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+
+        <profile>
+            <id>glassfish</id>
+
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.codehaus.cargo</groupId>
+                        <artifactId>cargo-maven3-plugin</artifactId>
+                        <configuration>
+                            <container>
+                                <containerId>glassfish6x</containerId>
+                            </container>
                         </configuration>
                     </plugin>
                 </plugins>
