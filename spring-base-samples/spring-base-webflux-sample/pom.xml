@@ -9,7 +9,7 @@
         <version>1.0.0</version>
         <relativePath>../../spring-project-parent/pom.xml</relativePath>
     </parent>
-    <artifactId>spring-webflux-sample</artifactId>
+    <artifactId>spring-base-webflux-sample</artifactId>
     <description>Spring WebFlux Sample</description>
     <version>1.0.0</version>
     <packaging>war</packaging>

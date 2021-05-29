@@ -9,7 +9,7 @@
         <version>1.0.0</version>
         <relativePath>../../spring-project-parent/pom.xml</relativePath>
     </parent>
-    <artifactId>spring-mvc-sample</artifactId>
+    <artifactId>spring-base-mvc-sample</artifactId>
     <description>Spring MVC Sample</description>
     <version>1.0.0</version>
     <packaging>war</packaging>

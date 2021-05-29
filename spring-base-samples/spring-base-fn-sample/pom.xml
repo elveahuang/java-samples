@@ -9,7 +9,7 @@
         <version>1.0.0</version>
         <relativePath>../../spring-project-parent/pom.xml</relativePath>
     </parent>
-    <artifactId>spring-fn-sample</artifactId>
+    <artifactId>spring-base-fn-sample</artifactId>
     <description>Spring Functional Sample</description>
     <version>1.0.0</version>
     <packaging>war</packaging>

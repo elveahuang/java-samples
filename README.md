@@ -1,2 +1,1 @@
-# java-samples
-实例库
+# Spring Samples
