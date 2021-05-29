@@ -16,7 +16,7 @@
         </repository>
         <repository><!-- official -->
             <id>official</id>
-            <url>http://central.maven.org/maven2</url>
+            <url>https://central.maven.org/maven2</url>
         </repository>
         <repository><!-- spring-release -->
             <id>spring-release</id>
@@ -34,7 +34,7 @@
         </pluginRepository>
         <pluginRepository><!-- official -->
             <id>official</id>
-            <url>http://central.maven.org/maven2</url>
+            <url>https://central.maven.org/maven2</url>
         </pluginRepository>
         <pluginRepository><!-- spring-release -->
             <id>spring-release</id>
@@ -48,13 +48,13 @@
 
     <properties>
         <!-- project -->
-        <project.source>11</project.source>
-        <project.target>11</project.target>
+        <project.source>1.8</project.source>
+        <project.target>1.8</project.target>
         <project.encoding>UTF-8</project.encoding>
         <project.build.version>1.0.0</project.build.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <!-- quarkus -->
-        <quarkus.version>2.0.0.CR1</quarkus.version>
+        <quarkus.version>1.13.6.Final</quarkus.version>
         <!-- maven -->
         <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
         <maven-war-plugin.version>3.3.1</maven-war-plugin.version>
