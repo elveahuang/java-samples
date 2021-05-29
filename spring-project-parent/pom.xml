@@ -48,8 +48,8 @@
 
     <properties>
         <!-- project -->
-        <project.source>1.8</project.source>
-        <project.target>1.8</project.target>
+        <project.source>11</project.source>
+        <project.target>11</project.target>
         <project.encoding>UTF-8</project.encoding>
         <project.build.version>1.0.0</project.build.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
